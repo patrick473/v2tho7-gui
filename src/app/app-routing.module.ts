@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  {path: 'department', component: DepartmentOverviewComponent}
+  {path: 'target/department', component: DepartmentOverviewComponent}
 ];
 
 @NgModule({
