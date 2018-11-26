@@ -1,0 +1,40 @@
+<clr-datagrid >
+  <clr-dg-column style="width:5%"[clrDgField]="'employeeNumber'">Employee ID</clr-dg-column>
+  <clr-dg-column style="width:10%"[clrDgField]="'firstName'">First Name</clr-dg-column>
+  <clr-dg-column style="width:15%"[clrDgField]="'lastName'">Last Name</clr-dg-column>
+  <clr-dg-column style="width:10%"[clrDgField]="'ssn'">Social Service Number</clr-dg-column>
+  <clr-dg-column style="width:20%"[clrDgField]="'email'">Email address</clr-dg-column>
+  <clr-dg-column style="width:15%"[clrDgField]="'jobtitle'">Job Title</clr-dg-column>
+  <clr-dg-column style="width:10%"[clrDgField]="'department'">Department</clr-dg-column>
+
+  <clr-dg-row *clrDgItems="let employee of employees">
+    <clr-dg-cell>{{employee.employeeNumber}}</clr-dg-cell>
+    <clr-dg-cell>{{employee.firstName}}</clr-dg-cell>
+    <clr-dg-cell>{{employee.lastName}}</clr-dg-cell>
+    <clr-dg-cell>{{employee.ssn}}</clr-dg-cell>
+    <clr-dg-cell>{{employee.email}}</clr-dg-cell>
+    <clr-dg-cell>{{employee.jobtitle}}</clr-dg-cell>
+    <clr-dg-cell>{{employee.department}}</clr-dg-cell>
+    <clr-dg-action-overflow>
+      <button class="action-item" (click)="onEdit(employee.id)">Edit</button>
+      <button class="action-item" (click)="onDelete(employee.id)">Delete</button>
+  </clr-dg-action-overflow>
+  <clr-dg-row-detail *clrIfExpanded>
+    Employee nr.: {{employee.employeeNumber}}<br/>
+    Name: {{employee.firstName}} {{employee.lastName}}<br/>
+    Social Service Number: {{employee.ssn}}<br/>
+    Date of Birth: {{employee.birthDate}}<br/>
+    Address: {{employee.address}} in {{employee.city}},{{employee.country}}<br/>
+    Email: {{employee.email}}<br/>
+    Job: {{employee.jobtitle}} in the department of "{{employee.department}}"
+
+</clr-dg-row-detail>
+  </clr-dg-row>
+
+  <clr-dg-footer>
+    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+      {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+      of {{pagination.totalItems}} employees
+  </clr-dg-pagination>
+  </clr-dg-footer>
+</clr-datagrid>
