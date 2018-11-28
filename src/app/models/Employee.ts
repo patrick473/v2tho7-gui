@@ -9,10 +9,11 @@ export default class Employee {
   private _country: string;
   private _email: string;
   private _sex: string;
-  private _jobtitle: string;
+  private _jobTitle: string;
   private _department: string;
 
-  constructor(employeeNumber: number, firstName: string, lastName: string, ssn: string, birthDate: string, address: string, city: string, country: string, email: string, sex: string, jobtitle: string, department: string) {
+
+  public constructor(employeeNumber: number, firstName: string, lastName: string, ssn: string, birthDate: string, address: string, city: string, country: string, email: string, sex: string, jobTitle: string, department: string) {
     this._employeeNumber = employeeNumber;
     this._firstName = firstName;
     this._lastName = lastName;
@@ -23,9 +24,11 @@ export default class Employee {
     this._country = country;
     this._email = email;
     this._sex = sex;
-    this._jobtitle = jobtitle;
+    this._jobTitle = jobTitle;
     this._department = department;
+
   }
+
   public get employeeNumber(): number {
     return this._employeeNumber;
   }
@@ -65,8 +68,8 @@ export default class Employee {
     return this._sex;
   }
 
-  public get jobtitle(): string {
-    return this._jobtitle;
+  public get jobTitle(): string {
+    return this._jobTitle;
   }
 
   public get department(): string {

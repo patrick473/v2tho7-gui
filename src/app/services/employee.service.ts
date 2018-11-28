@@ -1,3 +1,4 @@
+import { IEmployeeForm } from './../components/target/Employee/employee-new/employee-new.component';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import Employee from '../models/Employee';
@@ -55,5 +56,15 @@ export class EmployeeService {
       const employeeList: Employee[] = [employee1, employee2, employee3, employee1, employee2, employee3, employee1, employee2, employee3, employee1, employee2, employee3];
 
       return of (employeeList);
+  }
+
+  createNewEmployee(employeeData: IEmployeeForm): void {
+    const {firstName, lastName, ssn, birthDate, address, city, country, email, sex, jobTitle, department} = employeeData;
+    const newEmployee: Employee = new Employee(1, firstName, lastName, ssn, birthDate, address, city, country, email, sex, jobTitle, department);
+
+    console.log(newEmployee);
+  }
+  deleteEmployee(id: number): void {
+    console.log(`id:${id} is deleted`);
   }
 }

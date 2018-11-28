@@ -20,10 +20,10 @@ export class EmployeeTableComponent implements OnInit {
     this.employeeService.getEmployees()
         .subscribe(employees => this.employees = employees);
   }
-  onDelete(): void {
-    console.log('delete');
+  onDelete(id: number): void {
+    this.employeeService.deleteEmployee(id);
   }
-  onEdit(): void {
-    console.log('edit');
+  onEdit(id: number): void {
+    console.log(`edit employee ${id}`);
   }
 }
