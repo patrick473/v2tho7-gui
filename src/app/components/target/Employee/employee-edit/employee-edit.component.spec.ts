@@ -1,22 +1,22 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EmployeeNewComponent } from './employee-new.component';
+import { EmployeeEditComponent } from './employee-edit.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
-describe('EmployeeNewComponent', () => {
-  let component: EmployeeNewComponent;
-  let fixture: ComponentFixture<EmployeeNewComponent>;
+describe('EmployeeEditComponent', () => {
+  let component: EmployeeEditComponent;
+  let fixture: ComponentFixture<EmployeeEditComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EmployeeNewComponent ],
+      declarations: [ EmployeeEditComponent ],
       schemas: [NO_ERRORS_SCHEMA],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EmployeeNewComponent);
+    fixture = TestBed.createComponent(EmployeeEditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

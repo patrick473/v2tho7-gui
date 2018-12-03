@@ -1,6 +1,7 @@
 import { EmployeeService } from '../../../../services/employee.service';
 import { Component, OnInit } from '@angular/core';
 import Employee from 'src/app/models/Employee';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee-table',
@@ -11,7 +12,7 @@ export class EmployeeTableComponent implements OnInit {
 
   employees: Employee[];
 
-  constructor(private employeeService: EmployeeService) { }
+  constructor(private employeeService: EmployeeService, private router: Router) { }
 
   ngOnInit() {
     this.getEmployees();
@@ -24,6 +25,6 @@ export class EmployeeTableComponent implements OnInit {
     this.employeeService.deleteEmployee(id);
   }
   onEdit(id: number): void {
-    console.log(`edit employee ${id}`);
+    this.router.navigate([`/target/employee/edit/${id}`]);
   }
 }

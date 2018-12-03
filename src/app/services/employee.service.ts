@@ -58,6 +58,22 @@ export class EmployeeService {
       return of (employeeList);
   }
 
+  getEmployee(id: number): Employee {
+    const employee: Employee = new Employee(
+      id,
+      'Valerie',
+      'Moore',
+      '538-22-XXXX',
+      '23-8-1989',
+      '4397 Dale Avenue',
+      'Seattle',
+      'United States of America',
+      'ValarieMMoore@dayrep.com',
+      'F',
+      'Gynecologist',
+      'Health');
+      return employee;
+  }
   createNewEmployee(employeeData: IEmployeeForm): void {
     const {firstName, lastName, ssn, birthDate, address, city, country, email, sex, jobTitle, department} = employeeData;
     const newEmployee: Employee = new Employee(1, firstName, lastName, ssn, birthDate, address, city, country, email, sex, jobTitle, department);
@@ -67,4 +83,9 @@ export class EmployeeService {
   deleteEmployee(id: number): void {
     console.log(`id:${id} is deleted`);
   }
+  updateEmployee(employeeData: IEmployeeForm, id: number): void {
+    console.log(employeeData);
+    console.log(`id:${id} is updated`);
+  }
+
 }

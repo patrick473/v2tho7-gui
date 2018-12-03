@@ -12,6 +12,7 @@ import { EmployeeOverviewComponent } from './components/target/Employee/employee
 import { EmployeeTableComponent } from './components/target/Employee/employee-table/employee-table.component';
 import { EmployeeNewComponent } from './components/target/Employee/employee-new/employee-new.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EmployeeEditComponent } from './components/target/Employee/employee-edit/employee-edit.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     DepartmentTableComponent,
     EmployeeOverviewComponent,
     EmployeeTableComponent,
-    EmployeeNewComponent
+    EmployeeNewComponent,
+    EmployeeEditComponent
   ],
   imports: [
     BrowserModule,
