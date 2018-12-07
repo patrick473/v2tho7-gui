@@ -25,6 +25,6 @@ export class EmployeeTableComponent implements OnInit {
     this.employeeService.deleteEmployee(id);
   }
   onEdit(id: number): void {
-    this.router.navigate([`/target/employee/edit/${id}`]);
+    this.router.navigate([`/target/employee/details`], {queryParams: {id}});
   }
 }

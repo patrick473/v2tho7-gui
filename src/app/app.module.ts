@@ -10,9 +10,12 @@ import { ClarityModule, ClrFormsNextModule } from '@clr/angular';
 import { DepartmentTableComponent } from './components/target/Department/department-table/department-table.component';
 import { EmployeeOverviewComponent } from './components/target/Employee/employee-overview/employee-overview.component';
 import { EmployeeTableComponent } from './components/target/Employee/employee-table/employee-table.component';
-import { EmployeeNewComponent } from './components/target/Employee/employee-new/employee-new.component';
+
 import { ReactiveFormsModule } from '@angular/forms';
-import { EmployeeEditComponent } from './components/target/Employee/employee-edit/employee-edit.component';
+
+import { ProjectOverviewComponent } from './components/target/Project/project-overview/project-overview.component';
+import { ProjectTableComponent } from './components/target/Project/project-table/project-table.component';
+import { EmployeeDetailsComponent } from './components/target/Employee/employee-details/employee-details.component';
 
 @NgModule({
   declarations: [
@@ -22,8 +25,9 @@ import { EmployeeEditComponent } from './components/target/Employee/employee-edi
     DepartmentTableComponent,
     EmployeeOverviewComponent,
     EmployeeTableComponent,
-    EmployeeNewComponent,
-    EmployeeEditComponent
+    EmployeeDetailsComponent,
+    ProjectOverviewComponent,
+    ProjectTableComponent
   ],
   imports: [
     BrowserModule,

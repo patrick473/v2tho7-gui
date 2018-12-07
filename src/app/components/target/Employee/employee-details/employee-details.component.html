@@ -1,29 +1,29 @@
 <form class="clr-form-horizontal" clrForm [formGroup]="employeeForm" (ngSubmit)="onSubmit()" [hidden]="submitted">
 
-  <label>Add Employee </label>
+  <label>Employee details</label>
 
   <clr-input-container>
       <label>First name </label>
     <input clrInput type="text" formControlName="firstName" size="30">
 
-    <clr-control-error>First name is empty</clr-control-error>
+    <clr-control-error>First name is required</clr-control-error>
 
   </clr-input-container>
   <clr-input-container>
     <label>Last name</label>
       <input clrInput type="text" formControlName="lastName"  size="30">
-      <clr-control-error>Last name is empty</clr-control-error>
+      <clr-control-error>Last name is required</clr-control-error>
   </clr-input-container>
 
   <clr-input-container>
     <label>Social Service Number</label>
     <input clrInput type="text" formControlName="ssn" size="30">
-    <clr-control-error>Social Service Number is Required</clr-control-error>
+    <clr-control-error>Social Service Number is required</clr-control-error>
   </clr-input-container>
   <clr-input-container>
     <label>Birthdate</label>
     <input clrInput type="date" formControlName="birthDate" size="30">
-    <clr-control-error>Birth date Number is Required</clr-control-error>
+    <clr-control-error>Birth date Number is required</clr-control-error>
   </clr-input-container>
 
   <clr-input-container>
@@ -74,6 +74,6 @@
 
   <button class="btn btn-primary"
       type="submit"
-      [disabled]="employeeForm.invalid">Add</button>
+      [disabled]="employeeForm.invalid">Edit</button>
 
 </form>

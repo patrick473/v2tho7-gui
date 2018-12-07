@@ -81,7 +81,7 @@ export class EmployeeService {
     console.log(newEmployee);
   }
   deleteEmployee(id: number): void {
-    console.log(`id:${id} is deleted`);
+    console.log(`employee:${id} is deleted`);
   }
   updateEmployee(employeeData: IEmployeeForm, id: number): void {
     console.log(employeeData);
