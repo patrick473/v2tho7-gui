@@ -1,3 +1,4 @@
+import { IProjectForm } from './../components/target/Project/project-details/project-details.component';
 import { Injectable } from '@angular/core';
 import Project from '../models/Project';
 import { of, Observable } from 'rxjs';
@@ -19,10 +20,19 @@ export class ProjectService {
     return of (projectList);
   }
   getproject(id: number): Project {
-    const project: Project = new Project(1, 'ZZP Portal', 'Boston, USA');
+    const project: Project = new Project(id, 'ZZP Portal', 'Boston, USA');
     return project;
   }
   deleteProject(id: number): void {
     console.log(`project:${id} is deleted`);
+  }
+  createNewProject(projectData: IProjectForm): void {
+    const {name, location} = projectData;
+    const newProject: Project = new Project(1, name, location);
+    console.log(newProject);
+  }
+  updateProject(projectData: IProjectForm, id: number): void {
+    console.log(projectData);
+    console.log(`id:${id} is updated`);
   }
 }

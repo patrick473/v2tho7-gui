@@ -27,7 +27,7 @@ export interface IEmployeeForm {
 })
 export class EmployeeDetailsComponent implements OnInit {
 
-  firstName = 'beep';
+
   submitted = false;
   employeeID: number;
   employeeForm: FormGroup;
@@ -35,7 +35,10 @@ export class EmployeeDetailsComponent implements OnInit {
     // Deep clone
     let formData: IEmployeeForm = Object.assign({}, this.employeeForm.value);
     formData = Object.assign({}, formData);
-    this.employeeService.updateEmployee(formData, this.employeeID);
+    if (this.employeeID) {
+      this.employeeService.updateEmployee(formData, this.employeeID);
+    } else {this.employeeService.createNewEmployee(formData); }
+
     this.router.navigate([`/target/employee`]);
   }
 
@@ -73,7 +76,7 @@ export class EmployeeDetailsComponent implements OnInit {
             sex: selectedEmployee.sex,
             jobTitle: selectedEmployee.jobTitle,
             department: selectedEmployee.department
-          },{onlySelf: true, emitEvent: true});
+          }, {onlySelf: true, emitEvent: true});
         }
       });
    }

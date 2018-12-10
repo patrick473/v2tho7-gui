@@ -1,3 +1,5 @@
+
+import { IDepartmentForm } from './../components/target/Department/department-details/department-details.component';
 import { Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
 import Department from '../models/Department';
@@ -19,8 +21,18 @@ export class DepartmentService {
     return of (departmentList);
   }
   getDepartment(id: number): Department {
-    const department: Department = new Department(1, 'Industry', 'Hartford, USA');
+    const department: Department = new Department(id, 'Industry', 'Hartford, USA');
     return department;
+  }
+
+  createNewDepartment(departmentData: IDepartmentForm): void {
+    const {name, location} = departmentData;
+    const newDepartment: Department = new Department(1, name, location);
+    console.log(newDepartment);
+  }
+  updateDepartment(departmentData: IDepartmentForm, id: number): void {
+    console.log(departmentData);
+    console.log(`id:${id} is updated`);
   }
   deleteDepartment(id: number): void {
     console.log(`department:${id} is deleted`);

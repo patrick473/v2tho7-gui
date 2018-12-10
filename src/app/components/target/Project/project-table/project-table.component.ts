@@ -26,6 +26,6 @@ export class ProjectTableComponent implements OnInit {
     this.projectService.deleteProject(id);
   }
   onEdit(id: number) {
-    this.router.navigate([`/target/project/edit/${id}`]);
+    this.router.navigate([`/target/project/details/`], {queryParams: {id}} );
   }
 }

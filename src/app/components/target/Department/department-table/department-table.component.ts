@@ -26,7 +26,7 @@ export class DepartmentTableComponent implements OnInit {
     this.departmentService.deleteDepartment(id);
   }
   onEdit(id: number): void {
-    this.router.navigate([`/target/department/edit/${id}`]);
+    this.router.navigate([`/target/department/details`], {queryParams: {id}} );
   }
 
 }

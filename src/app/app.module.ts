@@ -16,6 +16,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ProjectOverviewComponent } from './components/target/Project/project-overview/project-overview.component';
 import { ProjectTableComponent } from './components/target/Project/project-table/project-table.component';
 import { EmployeeDetailsComponent } from './components/target/Employee/employee-details/employee-details.component';
+import { ProjectDetailsComponent } from './components/target/Project/project-details/project-details.component';
+import { DepartmentDetailsComponent } from './components/target/Department/department-details/department-details.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { EmployeeDetailsComponent } from './components/target/Employee/employee-
     EmployeeTableComponent,
     EmployeeDetailsComponent,
     ProjectOverviewComponent,
-    ProjectTableComponent
+    ProjectTableComponent,
+    ProjectDetailsComponent,
+    DepartmentDetailsComponent
   ],
   imports: [
     BrowserModule,

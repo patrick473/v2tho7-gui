@@ -1,0 +1,20 @@
+<form class="clr-form-horizontal" clrForm [formGroup]="projectForm" (ngSubmit)="onSubmit()" [hidden]="submitted">
+
+  <label>project details</label>
+
+  <clr-input-container>
+    <label>Name</label>
+    <input clrInput type="text" formControlName="name" size="30">
+    <clr-control-error>Name is required</clr-control-error>
+  </clr-input-container>
+
+  <clr-input-container>
+    <label>Location</label>
+    <input clrInput type="text" formControlName="location" size="30">
+    <clr-control-error>Location is required</clr-control-error>
+  </clr-input-container>
+
+  <button class="btn btn-primary"
+      type="submit"
+      [disabled]="projectForm.invalid">Edit</button>
+</form>

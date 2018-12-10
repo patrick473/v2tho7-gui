@@ -1,7 +1,7 @@
 <clr-datagrid>
   <clr-dg-column style="width:20%"[clrDgField]="'departmentNumber'">Department ID</clr-dg-column>
-  <clr-dg-column style="width:40%"[clrDgField]="'firstName'">Name</clr-dg-column>
-  <clr-dg-column style="width:40%"[clrDgField]="'firstName'">Location</clr-dg-column>
+  <clr-dg-column style="width:40%"[clrDgField]="'name'">Name</clr-dg-column>
+  <clr-dg-column style="width:40%"[clrDgField]="'location'">Location</clr-dg-column>
 
   <clr-dg-row *clrDgItems="let department of departments" [clrDgItem]="department">
     <clr-dg-cell>{{department.departmentNumber}}</clr-dg-cell>
