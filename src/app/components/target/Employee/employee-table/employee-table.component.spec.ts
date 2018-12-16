@@ -1,22 +1,22 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NavBarComponent } from './nav-bar.component';
-import { NO_ERRORS_SCHEMA } from '@angular/compiler/src/core';
+import { EmployeeTableComponent } from './employee-table.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
-describe('NavBarComponent', () => {
-  let component: NavBarComponent;
-  let fixture: ComponentFixture<NavBarComponent>;
+describe('EmployeeTableComponent', () => {
+  let component: EmployeeTableComponent;
+  let fixture: ComponentFixture<EmployeeTableComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NavBarComponent ],
+      declarations: [ EmployeeTableComponent ],
       schemas: [NO_ERRORS_SCHEMA],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NavBarComponent);
+    fixture = TestBed.createComponent(EmployeeTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

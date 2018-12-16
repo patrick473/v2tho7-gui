@@ -1,0 +1,79 @@
+<form class="clr-form-horizontal" clrForm [formGroup]="employeeForm" (ngSubmit)="onSubmit()" [hidden]="submitted">
+
+  <label>Employee details</label>
+
+  <clr-input-container>
+      <label>First name </label>
+    <input clrInput type="text" formControlName="firstName" size="30">
+
+    <clr-control-error>First name is required</clr-control-error>
+
+  </clr-input-container>
+  <clr-input-container>
+    <label>Last name</label>
+      <input clrInput type="text" formControlName="lastName"  size="30">
+      <clr-control-error>Last name is required</clr-control-error>
+  </clr-input-container>
+
+  <clr-input-container>
+    <label>Social Service Number</label>
+    <input clrInput type="text" formControlName="ssn" size="30">
+    <clr-control-error>Social Service Number is required</clr-control-error>
+  </clr-input-container>
+  <clr-input-container>
+    <label>Birthdate</label>
+    <input clrInput type="date" formControlName="birthDate" size="30">
+    <clr-control-error>Birth date Number is required</clr-control-error>
+  </clr-input-container>
+
+  <clr-input-container>
+    <label>Address</label>
+    <input clrInput type="text" formControlName="address" size="30">
+    <clr-control-error>Address is required</clr-control-error>
+  </clr-input-container>
+
+  <clr-input-container>
+    <label>City</label>
+    <input clrInput type="text" formControlName="city" size="30">
+    <clr-control-error>City is required</clr-control-error>
+  </clr-input-container>
+
+  <clr-input-container>
+    <label>Country</label>
+    <input clrInput type="text" formControlName="country" size="30">
+    <clr-control-error>Country is required</clr-control-error>
+  </clr-input-container>
+
+  <clr-input-container>
+    <label>Email</label>
+    <input clrInput type="email" formControlName="email" size="30">
+    <clr-control-error>Email is required</clr-control-error>
+  </clr-input-container>
+
+  <clr-select-container>
+    <label>Sex</label>
+    <select clrSelect name="sexOptions" formControlName="sex">
+      <option value="M">M</option>
+      <option value="F">F</option>
+    </select>
+    <clr-control-error>Sex is required</clr-control-error>
+  </clr-select-container>
+
+  <clr-input-container>
+    <label>Job description</label>
+    <input clrInput type="text" formControlName="jobTitle" size="30">
+    <clr-control-error>Job description is required</clr-control-error>
+  </clr-input-container>
+
+  <clr-input-container>
+    <label>Department</label>
+    <input clrInput type="text" formControlName="department" size="30">
+    <clr-control-error>Department is required</clr-control-error>
+  </clr-input-container>
+
+
+  <button class="btn btn-primary"
+      type="submit"
+      [disabled]="employeeForm.invalid">Edit</button>
+
+</form>
