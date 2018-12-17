@@ -1,4 +1,4 @@
-import { DepartmentService } from './../../../../services/department.service';
+import { DepartmentService } from '../../../../services/target/department.service';
 import { Component, OnInit } from '@angular/core';
 import Department from 'src/app/models/Department';
 import { Router } from '@angular/router';

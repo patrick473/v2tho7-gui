@@ -18,6 +18,8 @@ import { ProjectTableComponent } from './components/target/Project/project-table
 import { EmployeeDetailsComponent } from './components/target/Employee/employee-details/employee-details.component';
 import { ProjectDetailsComponent } from './components/target/Project/project-details/project-details.component';
 import { DepartmentDetailsComponent } from './components/target/Department/department-details/department-details.component';
+import { DefineOverviewComponent } from './components/define/define-overview/define-overview.component';
+import { RuleTableComponent } from './components/define/rule-table/rule-table.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { DepartmentDetailsComponent } from './components/target/Department/depar
     ProjectOverviewComponent,
     ProjectTableComponent,
     ProjectDetailsComponent,
-    DepartmentDetailsComponent
+    DepartmentDetailsComponent,
+    DefineOverviewComponent,
+    RuleTableComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
-import { IEmployeeForm } from './../components/target/Employee/employee-new/employee-new.component';
+import { IEmployeeForm } from '../../components/target/Employee/employee-new/employee-new.component';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import Employee from '../models/Employee';
+import Employee from '../../models/Employee';
 
 
 @Injectable({
