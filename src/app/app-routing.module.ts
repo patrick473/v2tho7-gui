@@ -1,3 +1,4 @@
+import { GenerateOverviewComponent } from './components/generate/generate-overview/generate-overview.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path: 'target/employee', component: EmployeeOverviewComponent},
   {path: 'target/employee/details', component: EmployeeDetailsComponent},
   // define paths
-  {path: 'define', component: DefineOverviewComponent}
+  {path: 'define', component: DefineOverviewComponent},
+  {path: 'generate', component: GenerateOverviewComponent}
 ];
 
 @NgModule({

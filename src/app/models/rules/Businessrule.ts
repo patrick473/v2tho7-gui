@@ -1,14 +1,32 @@
 import ITriggerEvents from './interfaces/ITriggerEvents';
 
 export default abstract class BusinessRule {
+  private _id: number;
   private _type: string;
   private _description: string;
   private _example: string;
   private _name: string;
   private _triggerEvents: ITriggerEvents;
 
+  constructor(
+    id: number,
+    type: string,
+    description: string,
+    example: string,
+    name: string,
+    triggerEvents: ITriggerEvents
+  ) {
+    this._id = id;
+    this._type = type;
+    this._description = description;
+    this._example = example;
+    this._name = name;
+    this._triggerEvents = triggerEvents;
+  }
 
-
+  public get id(): number {
+    return this._id;
+  }
   public get type(): string {
     return this._type;
   }
@@ -29,22 +47,27 @@ export default abstract class BusinessRule {
     return this._name;
   }
 
-  public set name(name: string) {
-    this._name = name;
-  }
-  public set type(type: string) {
-    this._type = type;
+  public set id(value: number) {
+    this._id = value;
   }
 
-  public set description(description: string) {
-    this._description = description;
+  public set type(value: string) {
+    this._type = value;
   }
 
-  public set example(example: string) {
-    this._example = example;
+  public set description(value: string) {
+    this._description = value;
   }
 
-  public set triggerEvents(triggerEvents: ITriggerEvents) {
-    this._triggerEvents = triggerEvents;
+  public set example(value: string) {
+    this._example = value;
+  }
+
+  public set name(value: string) {
+    this._name = value;
+  }
+
+  public set triggerEvents(value: ITriggerEvents) {
+    this._triggerEvents = value;
   }
 }

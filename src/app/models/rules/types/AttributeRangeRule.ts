@@ -1,10 +1,31 @@
 import StrictDataConstraint from '../StrictDataConstraint';
+import ITriggerEvents from '../interfaces/ITriggerEvents';
 
 export default class AttributeRangeRule extends StrictDataConstraint {
   private _rangeStart: number;
   private _rangeEnd: number;
   private _inRange: boolean;
 
+  constructor(
+    id: number,
+    type: string,
+    description: string,
+    example: string,
+    name: string,
+    triggerEvents: ITriggerEvents,
+    constraintPossible: boolean,
+    column: string,
+    table: string,
+
+    rangeStart: number,
+    rangeEnd: number,
+    inRange: boolean
+  ) {
+    super(id, type, description, example, name, triggerEvents, constraintPossible, column, table);
+    this._rangeStart = rangeStart;
+    this._rangeEnd = rangeEnd;
+    this._inRange = inRange;
+  }
   public get rangeStart(): number {
     return this._rangeStart;
   }
