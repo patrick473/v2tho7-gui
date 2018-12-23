@@ -45,4 +45,8 @@ export class GenerateService {
       )
     );
   }
+
+  generateRule(id: number): void{
+    console.log(`rule: ${id} must be generated in the target database now, the code is not yet here sadly.`);
+  }
 }
