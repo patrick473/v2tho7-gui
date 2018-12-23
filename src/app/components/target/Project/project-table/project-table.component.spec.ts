@@ -22,4 +22,11 @@ describe('ProjectTableComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should set projects upon calling getprojects', () => {
+
+    component.getProjects();
+    fixture.detectChanges();
+    expect(component.projects).toBeTruthy();
+  });
 });

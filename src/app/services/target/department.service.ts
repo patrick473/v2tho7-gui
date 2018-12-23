@@ -1,8 +1,8 @@
 
-import { IDepartmentForm } from './../components/target/Department/department-details/department-details.component';
+import { IDepartmentForm } from '../../components/target/Department/department-details/department-details.component';
 import { Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
-import Department from '../models/Department';
+import Department from '../../models/Department';
 
 @Injectable({
   providedIn: 'root'

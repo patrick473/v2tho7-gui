@@ -1,5 +1,5 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProjectService } from './../../../../services/project.service';
+import { ProjectService } from '../../../../services/target/project.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import Project from 'src/app/models/Project';

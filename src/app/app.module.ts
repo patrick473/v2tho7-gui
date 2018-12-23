@@ -18,6 +18,11 @@ import { ProjectTableComponent } from './components/target/Project/project-table
 import { EmployeeDetailsComponent } from './components/target/Employee/employee-details/employee-details.component';
 import { ProjectDetailsComponent } from './components/target/Project/project-details/project-details.component';
 import { DepartmentDetailsComponent } from './components/target/Department/department-details/department-details.component';
+import { DefineOverviewComponent } from './components/define/define-overview/define-overview.component';
+
+import { GenerateOverviewComponent } from './components/generate/generate-overview/generate-overview.component';
+import { GenerateTableComponent } from './components/generate/generate-table/generate-table.component';
+import { DefineTableComponent } from './components/define/define-table/define-table.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +36,11 @@ import { DepartmentDetailsComponent } from './components/target/Department/depar
     ProjectOverviewComponent,
     ProjectTableComponent,
     ProjectDetailsComponent,
-    DepartmentDetailsComponent
+    DepartmentDetailsComponent,
+    DefineOverviewComponent,
+    GenerateOverviewComponent,
+    GenerateTableComponent,
+    DefineTableComponent
   ],
   imports: [
     BrowserModule,

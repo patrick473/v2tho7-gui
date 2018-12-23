@@ -1,7 +1,7 @@
 import Department from 'src/app/models/Department';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DepartmentService } from './../../../../services/department.service';
+import { DepartmentService } from '../../../../services/target/department.service';
 import { Component, OnInit } from '@angular/core';
 
 

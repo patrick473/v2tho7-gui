@@ -1,6 +1,6 @@
-import { IProjectForm } from './../components/target/Project/project-details/project-details.component';
+import { IProjectForm } from '../../components/target/Project/project-details/project-details.component';
 import { Injectable } from '@angular/core';
-import Project from '../models/Project';
+import Project from '../../models/Project';
 import { of, Observable } from 'rxjs';
 
 @Injectable({
