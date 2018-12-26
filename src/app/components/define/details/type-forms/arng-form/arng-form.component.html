@@ -1,3 +1,88 @@
-<p>
-  arng-form works!
-</p>
+<form
+  class="clr-form-horizontal"
+  clrForm
+  [formGroup]="arngForm"
+  (ngSubmit)="onSubmit()"
+  [hidden]="submitted"
+
+>
+  <label> Attribute Range rule details </label>
+
+  <clr-input-container>
+    <label>Name</label>
+    <input clrInput type="text" formControlName="name" size="30" />
+    <clr-control-error *ngIf="name?.errors?.required"
+      >Name is required</clr-control-error
+    >
+    <clr-control-error *ngIf="name?.errors?.maxlength"
+      >Name needs to be shorter than 255 characters</clr-control-error
+    >
+  </clr-input-container>
+  <clr-input-container>
+    <label>description</label>
+    <input clrInput type="text" formControlName="description" size="30" />
+    <clr-control-error *ngIf="description?.errors?.required"
+      >Description is required</clr-control-error
+    >
+    <clr-control-error *ngIf="description?.errors?.maxlength"
+      >Description needs to be shorter than 255 characters</clr-control-error
+    >
+  </clr-input-container>
+  <clr-input-container>
+    <label>example</label>
+    <input clrInput type="text" formControlName="example" size="30" />
+    <clr-control-error *ngIf="example?.errors?.required">Example is required</clr-control-error
+    >
+    <clr-control-error *ngIf="example?.errors?.maxlength"
+      >Example needs to be shorter than 255 characters</clr-control-error
+    >
+  </clr-input-container>
+  <clr-input-container>
+    <label>column</label>
+    <input clrInput type="text" formControlName="column" size="30" />
+    <clr-control-error *ngIf="column?.errors?.required"
+      >Column is required</clr-control-error
+    >
+    <clr-control-error *ngIf="column?.errors?.maxlength"
+      >Column needs to be shorter than 255 characters</clr-control-error
+    >
+  </clr-input-container>
+  <clr-input-container>
+      <label>table</label>
+      <input clrInput type="text" formControlName="table" size="30" />
+      <clr-control-error *ngIf="table?.errors?.required"
+        >Table is required</clr-control-error
+      >
+      <clr-control-error *ngIf="table?.errors?.maxlength"
+        >Table needs to be shorter than 255 characters</clr-control-error
+      >
+    </clr-input-container>
+  <div  [formGroup]="range" formGroupName="range">
+  <clr-input-container>
+    <label>rangeStart</label>
+    <input clrInput type="number" formControlName="rangeStart" size="30" />
+    <clr-control-error *ngIf="rangeStart?.errors?.required">range start is required</clr-control-error
+    >
+  </clr-input-container>
+  <clr-input-container>
+    <label>rangeEnd</label>
+    <input clrInput type="number" formControlName="rangeEnd" size="30" />
+    <clr-control-error *ngIf="rangeEnd?.errors?.required">range end is required</clr-control-error>
+
+  </clr-input-container>
+  <clr-control-error *ngIf="range?.errors?.invalidrange">
+    range end needs to be higher than range start
+  </clr-control-error>
+  </div>
+
+  <clr-select-container>
+      <label>Value in range</label>
+      <select clrSelect name="inRange" formControlName="inRange">
+        <option value="inrange">in range</option>
+        <option value="outrange">outside of range</option>
+      </select>
+      <clr-control-error>in range is required</clr-control-error>
+    </clr-select-container>
+
+  <button class="btn btn-primary" type="submit" [disabled]="arngForm.invalid">Define</button>
+</form>
