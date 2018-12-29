@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { GenerateService } from './generate.service';
+import { GenerateService } from './businessrule.service';
 
 describe('GenerateService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

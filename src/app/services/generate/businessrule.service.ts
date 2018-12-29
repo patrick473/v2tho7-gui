@@ -8,7 +8,7 @@ import AttributeCompareRule from 'src/app/models/rules/types/AttributeCompareRul
 @Injectable({
   providedIn: 'root'
 })
-export class GenerateService {
+export class BusinessRuleService {
 
   constructor() { }
 
@@ -44,6 +44,10 @@ export class GenerateService {
         'pears'
       )
     );
+  }
+
+  deleteRule(id: number): void {
+    console.log(`deleteRule has to be implemented in service first before you can use it!`);
   }
 
   generateRule(id: number): void {
