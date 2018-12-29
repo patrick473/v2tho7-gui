@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { GenerateService } from './businessrule.service';
+import { BusinessRuleService } from './businessrule.service';
 
-describe('GenerateService', () => {
+describe('BusinessRuleService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: GenerateService = TestBed.get(GenerateService);
+    const service: BusinessRuleService = TestBed.get(BusinessRuleService);
     expect(service).toBeTruthy();
   });
 });
