@@ -1,4 +1,4 @@
-<clr-datagrid>
+<clr-datagrid [(clrDgSelected)] = "selected" [clrDgRowSelection]="true">
   <clr-dg-column style="width:20%"[clrDgField]="'departmentNumber'">Businessrule ID</clr-dg-column>
   <clr-dg-column style="width:40%"[clrDgField]="'name'">Type</clr-dg-column>
   <clr-dg-column style="width:40%"[clrDgField]="'location'">Name</clr-dg-column>
@@ -7,10 +7,6 @@
     <clr-dg-cell>{{businessrule.id}}</clr-dg-cell>
     <clr-dg-cell>{{businessrule.type}}</clr-dg-cell>
     <clr-dg-cell>{{businessrule.name}}</clr-dg-cell>
-    <clr-dg-action-overflow>
-      <button class="action-item" (click)="onEdit(businessrule.id)">Edit</button>
-      <button class="action-item" (click)="onDelete(businessrule.id)">Delete</button>
-  </clr-dg-action-overflow>
   </clr-dg-row>
   <clr-dg-footer>
     <clr-dg-pagination #pagination [clrDgPageSize]="10">
