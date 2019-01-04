@@ -13,11 +13,12 @@ export default abstract class StrictDataConstraint extends BusinessRule {
     example: string,
     name: string,
     triggerEvents: ITriggerEvents,
+    errorMessage: string,
     constraintPossible: boolean,
     column: string,
-    table: string
+    table: string,
   ) {
-    super(id, type, description, example, name, triggerEvents);
+    super(id, type, description, example, name, triggerEvents, errorMessage);
     this._constraintPossible = constraintPossible;
     this._column = column;
     this._table = table;

@@ -12,13 +12,14 @@ export default class extends StrictDataConstraint {
     example: string,
     name: string,
     triggerEvents: ITriggerEvents,
+    errorMessage: string,
     constraintPossible: boolean,
     column: string,
     table: string,
     otherColumn: string,
     comparisonType: string
   ) {
-    super(id, type, description, example, name, triggerEvents, constraintPossible, column, table);
+    super(id, type, description, example, name, triggerEvents, errorMessage, constraintPossible, column, table);
     this._otherColumn = otherColumn;
     this._comparisonType = comparisonType;
   }

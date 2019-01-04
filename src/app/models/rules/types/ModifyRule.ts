@@ -11,9 +11,10 @@ export default class ModifyRule extends BusinessRule {
     example: string,
     name: string,
     triggerEvents: ITriggerEvents,
+    errorMessage: string,
     code: string
   ) {
-    super(id, type, description, example, name, triggerEvents);
+    super(id, type, description, example, name, triggerEvents, errorMessage);
     this._code = code;
   }
 

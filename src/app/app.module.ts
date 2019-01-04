@@ -6,7 +6,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DepartmentOverviewComponent } from './components/target/Department/department-overview/department-overview.component';
-import { ClarityModule, ClrFormsNextModule } from '@clr/angular';
+import { ClarityModule, ClrFormsNextModule, ClrLayoutModule } from '@clr/angular';
 import { DepartmentTableComponent } from './components/target/Department/department-table/department-table.component';
 import { EmployeeOverviewComponent } from './components/target/Employee/employee-overview/employee-overview.component';
 import { EmployeeTableComponent } from './components/target/Employee/employee-table/employee-table.component';
@@ -70,7 +70,8 @@ import { ModiFormComponent } from './components/define/details/type-forms/modi-f
     BrowserAnimationsModule,
     ClarityModule,
     ReactiveFormsModule,
-    ClrFormsNextModule
+    ClrFormsNextModule,
+    ClrLayoutModule
 
   ],
   providers: [],
