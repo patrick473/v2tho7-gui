@@ -1,7 +1,10 @@
+
+import { NewOverviewComponent } from './components/define/new/new-overview/new-overview.component';
 import { GenerateOverviewComponent } from './components/generate/generate-overview/generate-overview.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { RuleDetailsWrapperComponent } from './components/define/details/rule-details-wrapper/rule-details-wrapper.component';
 import { DepartmentDetailsComponent } from './components/target/Department/department-details/department-details.component';
 import { EmployeeDetailsComponent } from './components/target/Employee/employee-details/employee-details.component';
 import { ProjectOverviewComponent } from './components/target/Project/project-overview/project-overview.component';
@@ -20,6 +23,8 @@ const routes: Routes = [
   {path: 'target/employee/details', component: EmployeeDetailsComponent},
   // define paths
   {path: 'define', component: DefineOverviewComponent},
+  {path: 'define/new', component: NewOverviewComponent},
+  {path: 'define/details', component: RuleDetailsWrapperComponent},
   {path: 'generate', component: GenerateOverviewComponent}
 ];
 
@@ -27,4 +32,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

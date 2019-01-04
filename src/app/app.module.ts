@@ -6,7 +6,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DepartmentOverviewComponent } from './components/target/Department/department-overview/department-overview.component';
-import { ClarityModule, ClrFormsNextModule } from '@clr/angular';
+import { ClarityModule, ClrFormsNextModule, ClrLayoutModule } from '@clr/angular';
 import { DepartmentTableComponent } from './components/target/Department/department-table/department-table.component';
 import { EmployeeOverviewComponent } from './components/target/Employee/employee-overview/employee-overview.component';
 import { EmployeeTableComponent } from './components/target/Employee/employee-table/employee-table.component';
@@ -23,6 +23,17 @@ import { DefineOverviewComponent } from './components/define/define-overview/def
 import { GenerateOverviewComponent } from './components/generate/generate-overview/generate-overview.component';
 import { GenerateTableComponent } from './components/generate/generate-table/generate-table.component';
 import { DefineTableComponent } from './components/define/define-table/define-table.component';
+import { NewOverviewComponent } from './components/define/new/new-overview/new-overview.component';
+import { RuleDetailsWrapperComponent } from './components/define/details/rule-details-wrapper/rule-details-wrapper.component';
+import { ArngFormComponent } from './components/define/details/type-forms/arng-form/arng-form.component';
+import { AcmpFormComponent } from './components/define/details/type-forms/acmp-form/acmp-form.component';
+import { AlisFormComponent } from './components/define/details/type-forms/alis-form/alis-form.component';
+import { AothFormComponent } from './components/define/details/type-forms/aoth-form/aoth-form.component';
+import { TcmpFormComponent } from './components/define/details/type-forms/tcmp-form/tcmp-form.component';
+import { TothFormComponent } from './components/define/details/type-forms/toth-form/toth-form.component';
+import { IcmpFormComponent } from './components/define/details/type-forms/icmp-form/icmp-form.component';
+import { EothFormComponent } from './components/define/details/type-forms/eoth-form/eoth-form.component';
+import { ModiFormComponent } from './components/define/details/type-forms/modi-form/modi-form.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +51,18 @@ import { DefineTableComponent } from './components/define/define-table/define-ta
     DefineOverviewComponent,
     GenerateOverviewComponent,
     GenerateTableComponent,
-    DefineTableComponent
+    DefineTableComponent,
+    NewOverviewComponent,
+    RuleDetailsWrapperComponent,
+    ArngFormComponent,
+    AcmpFormComponent,
+    AlisFormComponent,
+    AothFormComponent,
+    TcmpFormComponent,
+    TothFormComponent,
+    IcmpFormComponent,
+    EothFormComponent,
+    ModiFormComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +70,8 @@ import { DefineTableComponent } from './components/define/define-table/define-ta
     BrowserAnimationsModule,
     ClarityModule,
     ReactiveFormsModule,
-    ClrFormsNextModule
+    ClrFormsNextModule,
+    ClrLayoutModule
 
   ],
   providers: [],
