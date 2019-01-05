@@ -48,6 +48,16 @@
     >
   </clr-input-container>
   <clr-input-container>
+    <label>table</label>
+    <input clrInput type="text" formControlName="table" size="30" />
+    <clr-control-error *ngIf="table?.errors?.required"
+      >Table is required</clr-control-error
+    >
+    <clr-control-error *ngIf="table?.errors?.maxlength"
+      >Table needs to be shorter than 255 characters</clr-control-error
+    >
+</clr-input-container>
+  <clr-input-container>
     <label>column</label>
     <input clrInput type="text" formControlName="column" size="30" />
     <clr-control-error *ngIf="column?.errors?.required"
@@ -57,15 +67,29 @@
       >Column needs to be shorter than 255 characters</clr-control-error
     >
   </clr-input-container>
+
+  <clr-select-container>
+    <label>Comparison Type</label>
+    <select clrSelect name="comparisonType" formControlName="comparisonType">
+      <option value="=">=</option>
+      <option value="<>"><></option>
+      <option value="!=">!=</option>
+      <option value=">">></option>
+      <option value=">=">>=</option>
+      <option value="<"><</option>
+      <option value="<="><=</option>
+    </select>
+    <clr-control-error>Comparisontype is required</clr-control-error>
+  </clr-select-container>
   <clr-input-container>
-      <label>table</label>
-      <input clrInput type="text" formControlName="table" size="30" />
-      <clr-control-error *ngIf="table?.errors?.required"
-        >Table is required</clr-control-error
-      >
-      <clr-control-error *ngIf="table?.errors?.maxlength"
-        >Table needs to be shorter than 255 characters</clr-control-error
-      >
+    <label>Value to be compared to</label>
+    <input clrInput type="text" formControlName="value" size="30" />
+    <clr-control-error *ngIf="value?.errors?.required"
+      >Value is required</clr-control-error
+    >
+    <clr-control-error *ngIf="value?.errors?.maxlength"
+      >Value needs to be shorter than 255 characters</clr-control-error
+    >
   </clr-input-container>
   <br/>
     <div class="form-group" [formGroup]="actions" formGroupName="actions">
@@ -84,16 +108,7 @@
       </div>
       </div>
       <br/>
-      <clr-input-container>
-        <label>column</label>
-        <input clrInput type="text" formControlName="column" size="30" />
-        <clr-control-error *ngIf="column?.errors?.required"
-          >Column is required</clr-control-error
-        >
-        <clr-control-error *ngIf="column?.errors?.maxlength"
-          >Column needs to be shorter than 255 characters</clr-control-error
-        >
-      </clr-input-container>
+
 
 
 
@@ -103,7 +118,7 @@
 </div>
 <div class="clr-col-8">
   <pre>
-    <code clr-code-highlight="language-css">
+    <code >
       create or replace trigger {{name.value}}_trigger
       before delete or insert or update
       on {{table.value}}
@@ -126,7 +141,7 @@
         if l_oper in({{actionString}})
         then
           --{{description.value}}
-          l_passed := :new.{{column.value}} {{comparisonType.value}} {{otherColumn.value}}
+          l_passed := :new.{{column.value}} {{comparisonType.value}} {{value.value}}
           if not l_passed
           then
             l_error_stack := l_error_stack || '{{errorMessage.value}}';

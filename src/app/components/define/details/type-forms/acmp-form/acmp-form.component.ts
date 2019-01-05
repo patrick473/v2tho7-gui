@@ -46,7 +46,7 @@ export class AcmpFormComponent implements OnInit {
       ]),
       actions: actionsForm,
       comparisonType: new FormControl('', Validators.required),
-      otherColumn: new FormControl('', [Validators.required, Validators.maxLength(255)])
+      value: new FormControl('', [Validators.required, Validators.maxLength(255)])
     });
   }
   get name() {
@@ -88,8 +88,8 @@ export class AcmpFormComponent implements OnInit {
   get comparisonType() {
     return this.acmpForm.get('comparisonType');
   }
-  get otherColumn() {
-    return this.acmpForm.get('otherColumn');
+  get value() {
+    return this.acmpForm.get('value');
   }
   onSubmit() {
     console.log('beep');
