@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class GenerateTableComponent implements OnInit {
 
   businessrules: BusinessRule[];
-  selected: BusinessRule[];
+  selected: BusinessRule[] = [];
 
   constructor(private businessruleService: BusinessRuleService, private router: Router) { }
 
