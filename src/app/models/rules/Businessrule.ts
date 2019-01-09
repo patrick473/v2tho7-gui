@@ -6,6 +6,7 @@ export default abstract class BusinessRule {
   private _description: string;
   private _example: string;
   private _name: string;
+  private _errorMessage: string;
   private _triggerEvents: ITriggerEvents;
 
   constructor(
@@ -14,7 +15,8 @@ export default abstract class BusinessRule {
     description: string,
     example: string,
     name: string,
-    triggerEvents: ITriggerEvents
+    triggerEvents: ITriggerEvents,
+    errorMessage: string
   ) {
     this._id = id;
     this._type = type;
@@ -22,6 +24,7 @@ export default abstract class BusinessRule {
     this._example = example;
     this._name = name;
     this._triggerEvents = triggerEvents;
+    this._errorMessage = errorMessage;
   }
 
   public get id(): number {
@@ -47,6 +50,10 @@ export default abstract class BusinessRule {
     return this._name;
   }
 
+  public get errorMessage(): string {
+    return this._errorMessage;
+  }
+
   public set id(value: number) {
     this._id = value;
   }
@@ -69,5 +76,8 @@ export default abstract class BusinessRule {
 
   public set triggerEvents(value: ITriggerEvents) {
     this._triggerEvents = value;
+  }
+  public set errorMessage(value: string) {
+    this._errorMessage = value;
   }
 }

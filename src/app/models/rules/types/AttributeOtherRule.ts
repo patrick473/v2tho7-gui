@@ -11,13 +11,14 @@ export default class AttributeOtherRule extends StrictDataConstraint {
     example: string,
     name: string,
     triggerEvents: ITriggerEvents,
+    errorMessage: string,
     constraintPossible: boolean,
     column: string,
     table: string,
 
     statement: string
   ) {
-    super(id, type, description, example, name, triggerEvents, constraintPossible, column, table);
+    super(id, type, description, example, name, triggerEvents, errorMessage, constraintPossible, column, table);
     this._statement = statement;
   }
 

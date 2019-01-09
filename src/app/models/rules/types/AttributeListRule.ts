@@ -12,6 +12,7 @@ export default class AttributeListRule extends StrictDataConstraint {
     example: string,
     name: string,
     triggerEvents: ITriggerEvents,
+    errorMessage: string,
     constraintPossible: boolean,
     column: string,
     table: string,
@@ -19,7 +20,7 @@ export default class AttributeListRule extends StrictDataConstraint {
     list: string[],
     inList: boolean
   ) {
-    super(id, type, description, example, name, triggerEvents, constraintPossible, column, table);
+    super(id, type, description, example, name, triggerEvents, errorMessage, constraintPossible, column, table);
     this._list = list;
     this._inList = inList;
   }

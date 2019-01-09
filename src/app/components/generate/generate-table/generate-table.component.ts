@@ -30,5 +30,9 @@ export class GenerateTableComponent implements OnInit {
   onEdit(id: number): void {
     this.router.navigate([`/generate/generate-edit/details`], {queryParams: {id}} ); // route does not yet exist!
   }
+  selectionChanged(event): void {
+    console.log(event);
+    console.log(typeof event);
 
+  }
 }

@@ -13,19 +13,59 @@ export class BusinessRuleService {
   constructor() { }
 
   getRules(): Observable<BusinessRule[]> {
-    const acmp = new AttributeCompareRule(
+    const acmp1 = new AttributeCompareRule(
       1,
       'compares column',
       '1+1 = 2',
       'acmp_1',
       { insert: true, update: true, delete: true },
+      'BEEP BOOP ERROR BOOP BEEP',
       true,
       'apples',
       'trees',
       '+',
       'pears'
     );
-    const ruleList = [acmp, acmp, acmp, acmp];
+    const acmp2 = new AttributeCompareRule(
+      2,
+      'compares column',
+      '1+1 = 2',
+      'acmp_1',
+      { insert: true, update: true, delete: true },
+      'BEEP BOOP ERROR BOOP BEEP',
+      true,
+      'apples',
+      'trees',
+      '+',
+      'pears'
+    );
+    const acmp3 = new AttributeCompareRule(
+      3,
+      'compares column',
+      '1+1 = 2',
+      'acmp_1',
+      { insert: true, update: true, delete: true },
+      'BEEP BOOP ERROR BOOP BEEP',
+      true,
+      'apples',
+      'trees',
+      '+',
+      'pears'
+    );
+    const acmp4 = new AttributeCompareRule(
+      4,
+      'compares column',
+      '1+1 = 2',
+      'acmp_1',
+      { insert: true, update: true, delete: true },
+      'BEEP BOOP ERROR BOOP BEEP',
+      true,
+      'apples',
+      'trees',
+      '+',
+      'pears'
+    );
+    const ruleList = [acmp1, acmp2, acmp3, acmp4];
     return of (ruleList);
   }
 
@@ -37,6 +77,7 @@ export class BusinessRuleService {
         '1+1 = 2',
         'acmp_1',
         { insert: true, update: true, delete: true },
+        'BEEP BOOP ERROR BOOP BEEP',
         true,
         'apples',
         'trees',
