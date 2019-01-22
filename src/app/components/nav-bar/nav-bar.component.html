@@ -1,7 +1,7 @@
 <div class="main-container">
     <header class="header header-6">
         <div class="branding">
-          <a href="/" class="nav-link">
+          <a [routerLink]="['/']" class="nav-link">
             <clr-icon shape="ruler-pencil"></clr-icon>
             <span class="title">Businessrule generator dashboard</span>
           </a>
@@ -13,28 +13,28 @@
         </div>
         <nav class="sidenav">
             <section class="sidenav-content">
-              <a href="/" class="nav-link">HOME</a>
+              <a [routerLink]="['/']" class="nav-link">HOME</a>
               <section class="nav-group" *ngIf="targetActive" >
                   <input id="editTargetDatabase" type="checkbox">
                   <label for="editTargetDatabase">Edit Target Database</label>
                   <ul class="nav-list">
-                      <li><a class="nav-link" href="/target/department">Department</a></li>
-                      <li><a class="nav-link" href="/target/employee">Employee</a></li>
-                      <li><a class="nav-link" href="/target/project">Project</a></li>
+                      <li><a class="nav-link" [routerLink]="['/target/department']">Department</a></li>
+                      <li><a class="nav-link" [routerLink]="['/target/employee']">Employee</a></li>
+                      <li><a class="nav-link" [routerLink]="['/target/project']">Project</a></li>
                   </ul>
               </section>
               <section class="nav-group" *ngIf="defineActive" >
                 <input id="editTargetDatabase" type="checkbox">
                 <label for="editTargetDatabase">Define Businessrules</label>
                 <ul class="nav-list">
-                    <li><a class="nav-link" href="/define">overview of rules</a></li>
+                    <li><a class="nav-link" [routerLink]="['/define']">overview of rules</a></li>
                 </ul>
             </section>
             <section class="nav-group" *ngIf="generateActive" >
               <input id="editTargetDatabase" type="checkbox">
               <label for="editTargetDatabase">Generate Businessrules</label>
               <ul class="nav-list">
-                  <li><a class="nav-link" href="/generate">overview of rules</a></li>
+                  <li><a class="nav-link" [routerLink]="['/generate']">overview of rules</a></li>
               </ul>
           </section>
             </section>
