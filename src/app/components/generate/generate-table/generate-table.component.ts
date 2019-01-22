@@ -20,8 +20,8 @@ export class GenerateTableComponent implements OnInit {
   }
 
   getBusinessrules(): void {
-    this.businessruleService.getRules()
-    .subscribe(businessrules => this.businessrules = businessrules);
+    // this.businessruleService.getRules()
+    // .subscribe(businessrules => this.businessrules = businessrules);
   }
 
   onDelete(id: number): void {
