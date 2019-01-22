@@ -24,15 +24,15 @@
                   </ul>
               </section>
               <section class="nav-group" *ngIf="defineActive" >
-                <input id="editTargetDatabase" type="checkbox">
-                <label for="editTargetDatabase">Define Businessrules</label>
+                <input id="defineBusinessRule" type="checkbox">
+                <label for="defineBusinessRule">Define Businessrules</label>
                 <ul class="nav-list">
                     <li><a class="nav-link" [routerLink]="['/define']">overview of rules</a></li>
                 </ul>
             </section>
             <section class="nav-group" *ngIf="generateActive" >
-              <input id="editTargetDatabase" type="checkbox">
-              <label for="editTargetDatabase">Generate Businessrules</label>
+              <input id="generateBusinessRule" type="checkbox">
+              <label for="generateBusinessRule">Generate Businessrules</label>
               <ul class="nav-list">
                   <li><a class="nav-link" [routerLink]="['/generate']">overview of rules</a></li>
               </ul>
