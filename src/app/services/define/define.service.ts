@@ -2,7 +2,6 @@ import { Observable, of } from 'rxjs';
 
 import { Injectable } from '@angular/core';
 import BusinessRule from 'src/app/models/rules/Businessrule';
-import AttributeCompareRule from 'src/app/models/rules/types/AttributeCompareRule';
 
 @Injectable({
   providedIn: 'root'
@@ -10,40 +9,11 @@ import AttributeCompareRule from 'src/app/models/rules/types/AttributeCompareRul
 export class DefineService {
   constructor() {}
 
-  getRules(): Observable<BusinessRule[]> {
-    const acmp = new AttributeCompareRule(
-      1,
-      'compares column',
-      '1+1 = 2',
-      'acmp_1',
-      { insert: true, update: true, delete: true },
-      'BEEP BOOP ERROR BOOP BEEP',
-      true,
-      'apples',
-      'trees',
-      '+',
-      'pears'
-    );
-    const ruleList = [acmp, acmp, acmp, acmp];
-    return of (ruleList);
+  getRules(): void {
   }
 
-  getRule(id: number): Observable<BusinessRule> {
-    return of(
-      new AttributeCompareRule(
-        1,
-        'compares column',
-        '1+1 = 2',
-        'acmp_1',
-        { insert: true, update: true, delete: true },
-        'BOOP BEEP ERROR BEEOP BOOP',
-        true,
-        'apples',
-        'trees',
-        '+',
-        'pears'
-      )
-    );
+  getRule(id: number): void {
+
   }
   createNewRule(ruledata: any): void {
     console.log(ruledata);

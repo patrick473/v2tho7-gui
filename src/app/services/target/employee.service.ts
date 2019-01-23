@@ -77,15 +77,10 @@ export class EmployeeService {
   createNewEmployee(employeeData: IEmployeeForm): void {
     const {firstName, lastName, ssn, birthDate, address, city, country, email, sex, jobTitle, department} = employeeData;
     const newEmployee: Employee = new Employee(1, firstName, lastName, ssn, birthDate, address, city, country, email, sex, jobTitle, department);
-
-    console.log(newEmployee);
   }
   deleteEmployee(id: number): void {
-    console.log(`employee:${id} is deleted`);
   }
   updateEmployee(employeeData: IEmployeeForm, id: number): void {
-    console.log(employeeData);
-    console.log(`id:${id} is updated`);
   }
 
 }
