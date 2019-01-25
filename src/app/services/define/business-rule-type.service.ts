@@ -1,33 +1,34 @@
+
 import { Injectable } from '@angular/core';
-import BusinessRuleType from 'src/app/models/rules/BusinessRuleType';
+import {BusinessRuleType} from 'src/app/models/rules/BusinessRuleType';
 import { IBusinessRuleTypeForm } from 'src/app/components/define/business-rule-type-define/business-rule-type-define.component';
+import DefineAgent from 'src/app/agents/defineAgent';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BusinessRuleTypeService {
 
-  constructor() { }
+  private _defineAgent: DefineAgent;
+  constructor() {
+    this._defineAgent = new DefineAgent();
+   }
 
-  getBusinessRuleType(id: number): BusinessRuleType {
-    const type: BusinessRuleType = {
-        name: 'name',
-        nameCode: 'nameCode',
-        explanation: 'explanation',
-        example: 'example',
-        constraintPossible: true,
-        possibleOperators: [],
-        parameters: [],
-        category: {name: 'name', id: 1}
-      };
-    return type;
+   async getBusinessRuleTypes(): Promise<BusinessRuleType[]>  {
+    return this._defineAgent.getTypes();
+  }
+  async getBusinessRuleType(id: number): Promise<BusinessRuleType>  {
+    return this._defineAgent.getType(id);
   }
 
-  updateBusinessRuleType(businessRuleTypeData: IBusinessRuleTypeForm, id: number): void {
-
+  async updateBusinessRuleType(businessRuleType: BusinessRuleType): Promise<boolean> {
+    return this._defineAgent.updateType(businessRuleType);
   }
 
-  createBusinessRuleType(businessRuleTypeData: IBusinessRuleTypeForm): void {
-
+  createBusinessRuleType(businessRuleType: BusinessRuleType): Promise<boolean> {
+    return this._defineAgent.createType(businessRuleType);
+  }
+  deleteBusinessRuleType(id: number): Promise<boolean> {
+    return this._defineAgent.deleteType(id);
   }
 }
