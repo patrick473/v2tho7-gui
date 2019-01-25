@@ -1,4 +1,4 @@
-import BusinessRuleType from 'src/app/models/rules/BusinessRuleType';
+import {BusinessRuleType} from 'src/app/models/rules/BusinessRuleType';
 import { BusinessRuleTypeService } from './../../../services/define/business-rule-type.service';
 import { BusinessRuleService } from './../../../services/generate/businessrule.service';
 import { ActivatedRoute, Router } from '@angular/router';

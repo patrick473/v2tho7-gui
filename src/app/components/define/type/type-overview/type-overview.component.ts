@@ -1,3 +1,4 @@
+import { BusinessRuleTypeService } from './../../../../services/define/business-rule-type.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TypeOverviewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private typeService: BusinessRuleTypeService) { }
 
   ngOnInit() {
+    this.typeService.getBusinessRuleType(102);
   }
 
 }

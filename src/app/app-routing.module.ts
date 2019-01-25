@@ -15,6 +15,8 @@ import { ProjectDetailsComponent } from './components/target/Project/project-det
 import { TypeOverviewComponent } from './components/define/type/type-overview/type-overview.component';
 import { RuleOverviewComponent } from './components/define/rule/rule-overview/rule-overview.component';
 import { TypeDetailsComponent } from './components/define/type/type-details/type-details.component';
+import { RuleTypeSelectComponent } from './components/define/rule/rule-type-select/rule-type-select.component';
+import { RuleDetailsComponent } from './components/define/rule/rule-details/rule-details.component';
 
 
 
@@ -28,9 +30,9 @@ const routes: Routes = [
   // define paths
   {path: 'define/rule', component: RuleOverviewComponent},
   // choose type
-  {path: 'define/rule/new/select', component: NewOverviewComponent},
+  {path: 'define/rule/type/select', component: RuleTypeSelectComponent},
   // create rule
-  {path: 'define/rule/new/create', component: NewOverviewComponent},
+  {path: 'define/rule/new/create', component: RuleDetailsComponent},
   {path: 'define/rule/details', component: RuleDetailsWrapperComponent},
   {path: 'define/type', component: TypeOverviewComponent},
   {path: 'define/type/details', component: TypeDetailsComponent},
