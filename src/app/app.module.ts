@@ -34,6 +34,7 @@ import { TothFormComponent } from './components/define/details/type-forms/toth-f
 import { IcmpFormComponent } from './components/define/details/type-forms/icmp-form/icmp-form.component';
 import { EothFormComponent } from './components/define/details/type-forms/eoth-form/eoth-form.component';
 import { ModiFormComponent } from './components/define/details/type-forms/modi-form/modi-form.component';
+import { BusinessRuleTypeDefineComponent } from './components/define/business-rule-type-define/business-rule-type-define.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { ModiFormComponent } from './components/define/details/type-forms/modi-f
     TothFormComponent,
     IcmpFormComponent,
     EothFormComponent,
-    ModiFormComponent
+    ModiFormComponent,
+    BusinessRuleTypeDefineComponent
   ],
   imports: [
     BrowserModule,

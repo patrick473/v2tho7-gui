@@ -1,4 +1,5 @@
-interface BusinessRuleType {
+export default interface BusinessRuleType {
+  id?: number;
  name: string;
  nameCode: string;
  explanation: string;
@@ -6,5 +7,5 @@ interface BusinessRuleType {
  constraintPossible: boolean;
  possibleOperators: Array<{name: string; action: string}>;
  parameters: Array<{parameter: string; datatype: string}>;
- category: {name: string};
+ category: {name: string, id: number};
 }
