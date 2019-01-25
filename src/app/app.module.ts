@@ -38,6 +38,8 @@ import { TypeOverviewComponent } from './components/define/type/type-overview/ty
 import { TypeTableComponent } from './components/define/type/type-table/type-table.component';
 import { TypeDetailsComponent } from './components/define/type/type-details/type-details.component';
 import { RuleOverviewComponent } from './components/define/rule/rule-overview/rule-overview.component';
+import { RuleTypeSelectComponent } from './components/define/rule/rule-type-select/rule-type-select.component';
+import { RuleDetailsComponent } from './components/define/rule/rule-details/rule-details.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +71,9 @@ import { RuleOverviewComponent } from './components/define/rule/rule-overview/ru
     TypeOverviewComponent,
     TypeTableComponent,
     TypeDetailsComponent,
-    RuleOverviewComponent
+    RuleOverviewComponent,
+    RuleTypeSelectComponent,
+    RuleDetailsComponent
   ],
   imports: [
     BrowserModule,
