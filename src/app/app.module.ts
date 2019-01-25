@@ -12,6 +12,7 @@ import { EmployeeOverviewComponent } from './components/target/Employee/employee
 import { EmployeeTableComponent } from './components/target/Employee/employee-table/employee-table.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { ProjectOverviewComponent } from './components/target/Project/project-overview/project-overview.component';
 import { ProjectTableComponent } from './components/target/Project/project-table/project-table.component';
@@ -33,7 +34,6 @@ import { TothFormComponent } from './components/define/details/type-forms/toth-f
 import { IcmpFormComponent } from './components/define/details/type-forms/icmp-form/icmp-form.component';
 import { EothFormComponent } from './components/define/details/type-forms/eoth-form/eoth-form.component';
 import { ModiFormComponent } from './components/define/details/type-forms/modi-form/modi-form.component';
-import { BusinessRuleTypeDefineComponent } from './components/define/business-rule-type-define/business-rule-type-define.component';
 import { TypeOverviewComponent } from './components/define/type/type-overview/type-overview.component';
 import { TypeTableComponent } from './components/define/type/type-table/type-table.component';
 import { TypeDetailsComponent } from './components/define/type/type-details/type-details.component';
@@ -67,7 +67,6 @@ import { RuleDetailsComponent } from './components/define/rule/rule-details/rule
     IcmpFormComponent,
     EothFormComponent,
     ModiFormComponent,
-    BusinessRuleTypeDefineComponent,
     TypeOverviewComponent,
     TypeTableComponent,
     TypeDetailsComponent,
@@ -82,7 +81,8 @@ import { RuleDetailsComponent } from './components/define/rule/rule-details/rule
     ClarityModule,
     ReactiveFormsModule,
     ClrFormsNextModule,
-    ClrLayoutModule
+    ClrLayoutModule,
+    FormsModule
 
   ],
   providers: [],

@@ -1,7 +1,6 @@
 
 import { Injectable } from '@angular/core';
 import {BusinessRuleType} from 'src/app/models/rules/BusinessRuleType';
-import { IBusinessRuleTypeForm } from 'src/app/components/define/business-rule-type-define/business-rule-type-define.component';
 import DefineAgent from 'src/app/agents/defineAgent';
 
 @Injectable({

@@ -1,3 +1,38 @@
-<p>
-  type-details works!
-</p>
+<form class="clr-form-horizontal" clrForm [formGroup]="businessRuleTypeForm" (ngSubmit)="onSubmit()" [hidden]="submitted">
+
+  <label>Businessrule type details</label>
+
+  <clr-input-container>
+    <label>Name</label>
+    <input clrInput  type="text" formControlName="name" size="30">
+    <clr-control-error>Name is required</clr-control-error>
+  </clr-input-container>
+
+  <br/>
+  <div class="clr-form-group" >
+      <label class="clr-control-label"> new Parameter </label>
+    <input type="text" placeholder="name" size="30"  [(ngModel)]="currentParameter.name" [ngModelOptions]="{standalone: true}"> &nbsp;
+    <label> Datatype &nbsp;</label>
+    <select  name="datatype" [(ngModel)]="currentParameter.datatype" [ngModelOptions]="{standalone: true}">
+      <option value="text">text</option>
+      <option value="number">number</option>
+      <option value="any">any</option>
+    </select> &nbsp;
+    <button class="btn btn-secondary" type="button" (click)="this.addParameter()" >+</button>
+  </div>
+<!-- Hier moet de parameters lijst-->
+ <br/>
+  <div class="clr-form-group">
+      <label class="clr-control-label"> new Operator </label>
+    <input type="text" placeholder="name" size="30" [(ngModel)]="currentOperator.name" [ngModelOptions]="{standalone: true}"> &nbsp;
+    <input type="text" placeholder="action" size="30" [(ngModel)]="currentOperator.action" [ngModelOptions]="{standalone: true}"> &nbsp;
+     &nbsp;
+    <button class="btn btn-secondary" type="button" (click)="this.addOperator()">+</button>
+  </div>
+<!-- Hier moet de operators lijst-->
+<button class="btn btn-primary"
+type="submit"
+[disabled]="businessRuleTypeForm.invalid">Edit</button>
+
+</form>
+

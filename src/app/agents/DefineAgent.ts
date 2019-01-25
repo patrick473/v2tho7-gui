@@ -47,7 +47,7 @@ export default class DefineAgent {
   public async createType(type: BusinessRuleType) {
     await fetch(`${this._baseURI}/type`, {
       method: 'post',
-      body: type
+      body: JSON.stringify(type)
     });
 
     return true;
@@ -55,7 +55,7 @@ export default class DefineAgent {
   public async updateType(type: BusinessRuleType) {
     await fetch(`${this._baseURI}/type`, {
       method: 'put',
-      body: type
+      body: JSON.stringify(type)
     });
 
     return true;

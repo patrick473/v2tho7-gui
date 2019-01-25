@@ -1,3 +1,5 @@
+import { BusinessRuleType } from 'src/app/models/rules/BusinessRuleType';
+import { BusinessRuleTypeService } from './../../../../services/define/business-rule-type.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TypeTableComponent implements OnInit {
 
-  constructor() { }
+  types: BusinessRuleType[];
+  constructor(private typeService: BusinessRuleTypeService) { }
 
   ngOnInit() {
+    this.getTypes();
+    console.log(this.types);
   }
 
+  async getTypes() {
+    this.types = await this.typeService.getBusinessRuleTypes();
+  }
 }

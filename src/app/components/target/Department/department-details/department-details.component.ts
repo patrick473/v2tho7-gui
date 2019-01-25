@@ -23,6 +23,7 @@ export class DepartmentDetailsComponent implements OnInit {
   departmentID: number;
   departmentForm: FormGroup;
 
+
   constructor(private departmentService: DepartmentService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
