@@ -1,4 +1,4 @@
-export default interface BusinessRuleType {
+export  interface BusinessRuleType {
   id?: number;
  name: string;
  nameCode: string;
