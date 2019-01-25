@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DefineTableComponent } from './define-table.component';
+import { RuleOverviewComponent } from './rule-overview.component';
 
-describe('DefineTableComponent', () => {
-  let component: DefineTableComponent;
-  let fixture: ComponentFixture<DefineTableComponent>;
+describe('RuleOverviewComponent', () => {
+  let component: RuleOverviewComponent;
+  let fixture: ComponentFixture<RuleOverviewComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DefineTableComponent ]
+      declarations: [ RuleOverviewComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DefineTableComponent);
+    fixture = TestBed.createComponent(RuleOverviewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

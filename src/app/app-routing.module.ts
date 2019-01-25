@@ -1,4 +1,5 @@
 
+
 import { NewOverviewComponent } from './components/define/new/new-overview/new-overview.component';
 import { GenerateOverviewComponent } from './components/generate/generate-overview/generate-overview.component';
 import { NgModule } from '@angular/core';
@@ -11,7 +12,10 @@ import { ProjectOverviewComponent } from './components/target/Project/project-ov
 import { DepartmentOverviewComponent } from './components/target/Department/department-overview/department-overview.component';
 import { EmployeeOverviewComponent } from './components/target/Employee/employee-overview/employee-overview.component';
 import { ProjectDetailsComponent } from './components/target/Project/project-details/project-details.component';
-import { DefineOverviewComponent } from './components/define/define-overview/define-overview.component';
+import { TypeOverviewComponent } from './components/define/type/type-overview/type-overview.component';
+import { RuleOverviewComponent } from './components/define/rule/rule-overview/rule-overview.component';
+import { TypeDetailsComponent } from './components/define/type/type-details/type-details.component';
+
 
 
 const routes: Routes = [
@@ -22,9 +26,14 @@ const routes: Routes = [
   {path: 'target/employee', component: EmployeeOverviewComponent},
   {path: 'target/employee/details', component: EmployeeDetailsComponent},
   // define paths
-  {path: 'define', component: DefineOverviewComponent},
-  {path: 'define/new', component: NewOverviewComponent},
-  {path: 'define/details', component: RuleDetailsWrapperComponent},
+  {path: 'define/rule', component: RuleOverviewComponent},
+  // choose type
+  {path: 'define/rule/new/select', component: NewOverviewComponent},
+  // create rule
+  {path: 'define/rule/new/create', component: NewOverviewComponent},
+  {path: 'define/rule/details', component: RuleDetailsWrapperComponent},
+  {path: 'define/type', component: TypeOverviewComponent},
+  {path: 'define/type/details', component: TypeDetailsComponent},
   {path: 'generate', component: GenerateOverviewComponent}
 ];
 

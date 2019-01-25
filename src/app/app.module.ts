@@ -18,11 +18,10 @@ import { ProjectTableComponent } from './components/target/Project/project-table
 import { EmployeeDetailsComponent } from './components/target/Employee/employee-details/employee-details.component';
 import { ProjectDetailsComponent } from './components/target/Project/project-details/project-details.component';
 import { DepartmentDetailsComponent } from './components/target/Department/department-details/department-details.component';
-import { DefineOverviewComponent } from './components/define/define-overview/define-overview.component';
+
 
 import { GenerateOverviewComponent } from './components/generate/generate-overview/generate-overview.component';
 import { GenerateTableComponent } from './components/generate/generate-table/generate-table.component';
-import { DefineTableComponent } from './components/define/define-table/define-table.component';
 import { NewOverviewComponent } from './components/define/new/new-overview/new-overview.component';
 import { RuleDetailsWrapperComponent } from './components/define/details/rule-details-wrapper/rule-details-wrapper.component';
 import { ArngFormComponent } from './components/define/details/type-forms/arng-form/arng-form.component';
@@ -35,6 +34,10 @@ import { IcmpFormComponent } from './components/define/details/type-forms/icmp-f
 import { EothFormComponent } from './components/define/details/type-forms/eoth-form/eoth-form.component';
 import { ModiFormComponent } from './components/define/details/type-forms/modi-form/modi-form.component';
 import { BusinessRuleTypeDefineComponent } from './components/define/business-rule-type-define/business-rule-type-define.component';
+import { TypeOverviewComponent } from './components/define/type/type-overview/type-overview.component';
+import { TypeTableComponent } from './components/define/type/type-table/type-table.component';
+import { TypeDetailsComponent } from './components/define/type/type-details/type-details.component';
+import { RuleOverviewComponent } from './components/define/rule/rule-overview/rule-overview.component';
 
 @NgModule({
   declarations: [
@@ -49,10 +52,8 @@ import { BusinessRuleTypeDefineComponent } from './components/define/business-ru
     ProjectTableComponent,
     ProjectDetailsComponent,
     DepartmentDetailsComponent,
-    DefineOverviewComponent,
     GenerateOverviewComponent,
     GenerateTableComponent,
-    DefineTableComponent,
     NewOverviewComponent,
     RuleDetailsWrapperComponent,
     ArngFormComponent,
@@ -64,7 +65,11 @@ import { BusinessRuleTypeDefineComponent } from './components/define/business-ru
     IcmpFormComponent,
     EothFormComponent,
     ModiFormComponent,
-    BusinessRuleTypeDefineComponent
+    BusinessRuleTypeDefineComponent,
+    TypeOverviewComponent,
+    TypeTableComponent,
+    TypeDetailsComponent,
+    RuleOverviewComponent
   ],
   imports: [
     BrowserModule,
