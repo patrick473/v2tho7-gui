@@ -25,7 +25,6 @@ export class TypeDetailsComponent implements OnInit {
   options: string;
   currentParameter: {name: string, datatype: string} = {name: '', datatype: ''};
   currentOperator: {name: string, action: string} = {name: '', action: ''};
-  businessRuleType: BusinessRuleType;
   formState: BusinessRuleType = {
     name: '',
     nameCode: '',
@@ -40,12 +39,6 @@ export class TypeDetailsComponent implements OnInit {
   constructor(private businessRuleTypeService: BusinessRuleTypeService, private route: ActivatedRoute, private router: Router) { }
 
   async ngOnInit() {
-    this.route.queryParams.subscribe(async (params) => {
-      if (params['id']) {
-        this.id = parseInt(params['id'], 10);
-        this.businessRuleType = await this.businessRuleTypeService.getBusinessRuleType(this.id);
-      }
-    });
 
     this.businessRuleTypeForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.maxLength(30)]),
