@@ -33,7 +33,7 @@ export class TypeDetailsComponent implements OnInit {
     constraintPossible: false,
     possibleOperators: [],
     parameters: [],
-    category: {name: '', id: 0}
+    category: {name: 'Static data constraint', id: 1}
   };
   businessRuleTypeForm: FormGroup;
   constructor(private businessRuleTypeService: BusinessRuleTypeService, private route: ActivatedRoute, private router: Router) { }
@@ -65,19 +65,24 @@ export class TypeDetailsComponent implements OnInit {
   });
   }
 
-  onSubmit() {
+  async onSubmit() {
     // Deep clone
     let formData: IFormState = Object.assign({}, this.businessRuleTypeForm.value);
     formData = Object.assign({}, formData);
+    this.formState.name = formData.name;
+    this.formState.nameCode = formData.nameCode;
+    this.formState.example = formData.example;
+    this.formState.explanation = formData.explanation;
+    this.formState.constraintPossible = formData.constraintPossible ===  'true';
     if (this.id) {
-      this.businessRuleTypeService.updateBusinessRuleType(this.formState);
-    } else {this.businessRuleTypeService.createBusinessRuleType(this.formState); }
+      await this.businessRuleTypeService.updateBusinessRuleType(this.formState);
+    } else { await this.businessRuleTypeService.createBusinessRuleType(this.formState); }
 
-    this.router.navigate([`/target/employee`]);
+    this.router.navigate([`/define/type`]);
   }
 
   addParameter() {
-    this.formState.parameters.push(this.currentParameter);
+    this.formState.parameters.push({parameter: this.currentParameter.name, datatype: this.currentParameter.datatype});
     this.currentParameter = {name: '' , datatype: ''};
     console.log(this.formState);
   }
@@ -96,8 +101,22 @@ export class TypeDetailsComponent implements OnInit {
 
   onParameterDelete(name: string ) {
     this.formState.parameters = this.formState.parameters.filter((value) => {
-      return value.name !== name;
+      return value.parameter !== name;
     });
+  }
+
+
+  get name() {
+    return this.businessRuleTypeForm.get('name');
+  }
+  get explanation() {
+    return this.businessRuleTypeForm.get('explanation');
+  }
+  get example() {
+    return this.businessRuleTypeForm.get('example');
+  }
+  get constraintPossible() {
+    return this.businessRuleTypeForm.get('constraintPossible');
   }
 
 }

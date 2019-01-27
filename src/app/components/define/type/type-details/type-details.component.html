@@ -1,118 +1,195 @@
-<form class="clr-form-horizontal" clrForm [formGroup]="businessRuleTypeForm" (ngSubmit)="onSubmit()" [hidden]="submitted">
-  <div class = "clr-col-12">
-    <label>Businessrule type details</label>
-  </div>
+<form
+  class="clr-form-horizontal"
+  clrForm
+  [formGroup]="businessRuleTypeForm"
+  (ngSubmit)="onSubmit()"
+  [hidden]="submitted"
+>
+  <div class="clr-col-12"><label>Businessrule type details</label></div>
 
-  <div class = "clr-col-12">
+  <div class="clr-col-12">
     <clr-input-container>
       <label>Name</label>
-      <input clrInput  type="text" formControlName="name" size="30">
-      <clr-control-error>Name is required</clr-control-error>
+      <input clrInput type="text" formControlName="name" size="30" />
+      <clr-control-error *ngIf="name?.errors?.required"
+        >Name is required</clr-control-error
+      >
+      <clr-control-error *ngIf="name?.errors?.maxlength"
+        >Name needs to be shorter than 255 characters</clr-control-error
+      >
     </clr-input-container>
   </div>
 
-  <div class = "clr-col-12">
+  <div class="clr-col-12">
     <clr-input-container>
       <label>Name code</label>
-      <input clrInput  type="text" formControlName="nameCode" size="30">
-      <clr-control-error>Name code is required</clr-control-error>
+      <input clrInput type="text" formControlName="nameCode" size="30" />
+
+      <clr-control-error *ngIf="namecode?.errors?.required"
+        >Namecode is required</clr-control-error
+      >
+      <clr-control-error *ngIf="namecode?.errors?.maxlength"
+        >Namecode needs to be 4 characters long</clr-control-error
+      >
+      <clr-control-error *ngIf="namecode?.errors?.minlength"
+      >Namecode needs to be 4 characters long</clr-control-error
+    >
     </clr-input-container>
   </div>
 
-  <div class = "clr-col-12">
+  <div class="clr-col-12">
     <clr-input-container>
       <label>Explanation</label>
-      <input clrInput  type="text" formControlName="explanation" size="40">
-      <clr-control-error>Explanation is required</clr-control-error>
+      <input clrInput type="text" formControlName="explanation" size="40" />
+      <clr-control-error *ngIf="explanation?.errors?.required"
+        >Explanation is required</clr-control-error
+      >
+      <clr-control-error *ngIf="explanation?.errors?.maxlength"
+        >Explanation needs to be shorter than 255 characters</clr-control-error
+      >
     </clr-input-container>
   </div>
 
-  <div class = "clr-col-12">
+  <div class="clr-col-12">
     <clr-input-container>
       <label>Example</label>
-      <input clrInput  type="text" formControlName="example" size="40">
-      <clr-control-error>Example is required</clr-control-error>
+      <input clrInput type="text" formControlName="example" size="40" />
+      <clr-control-error *ngIf="example?.errors?.required"
+        >Example is required</clr-control-error
+      >
+      <clr-control-error *ngIf="example?.errors?.maxlength"
+        >Example needs to be shorter than 255 characters</clr-control-error
+      >
     </clr-input-container>
   </div>
 
-  <div class = "clr-col-12">
+  <div class="clr-col-12">
     <clr-select-container>
       <label>Constraint Possible?</label>
-      <select clrSelect name="options" [(ngModel)]="options" required>
+      <select clrSelect name="options" formControlName="constraintPossible" [(ngModel)]="options" required>
         <option value="true">true</option>
         <option value="false">false</option>
       </select>
-      <clr-control-error>A yes or a no is required!</clr-control-error>
+      <clr-control-error *ngIf="constraintPossible?.errors?.required"
+        >need to fill in true or false</clr-control-error
+      >
+
     </clr-select-container>
   </div>
 
-  <br/>
+  <br />
 
-  <div class = "clr-col-12">
-    <div class="clr-form-group" >
-        <label class="clr-control-label"> New Parameter </label>
-      <input type="text" placeholder="name" size="30"  [(ngModel)]="currentParameter.name" [ngModelOptions]="{standalone: true}"> &nbsp;
-      <label> Datatype &nbsp;</label>
-      <select  name="datatype" [(ngModel)]="currentParameter.datatype" [ngModelOptions]="{standalone: true}">
+  <div class="clr-col-12">
+    <div class="clr-form-group">
+      <label class="clr-control-label"> New Parameter </label>
+      <input
+        type="text"
+        placeholder="name"
+        size="30"
+        [(ngModel)]="currentParameter.name"
+        [ngModelOptions]="{ standalone: true }"
+      />
+      &nbsp; <label> Datatype &nbsp;</label>
+      <select
+        name="datatype"
+        [(ngModel)]="currentParameter.datatype"
+        [ngModelOptions]="{ standalone: true }"
+      >
         <option value="text">text</option>
         <option value="number">number</option>
         <option value="any">any</option>
-      </select> &nbsp;
-      <button class="btn btn-secondary" type="button" (click)="this.addParameter()" >+</button>
+      </select>
+      &nbsp;
+      <button
+        class="btn btn-secondary"
+        type="button"
+        (click)="this.addParameter()"
+      >
+        +
+      </button>
     </div>
   </div>
 
-<!-- Hier moet de parameters lijst-->
-<div class = "clr-col-12">
-  <clr-datagrid>
-    <clr-dg-column>Name</clr-dg-column>
-    <clr-dg-column>Data type</clr-dg-column>
+  <!-- Hier moet de parameters lijst-->
+  <div class="clr-col-12">
+    <clr-datagrid>
+      <clr-dg-column>Name</clr-dg-column>
+      <clr-dg-column>Data type</clr-dg-column>
 
-    <clr-dg-row *clrDgItems="let parameter of this.formState.parameters">
-        <clr-dg-cell>{{parameter.name}}</clr-dg-cell>
-        <clr-dg-cell>{{parameter.datatype}}</clr-dg-cell>
+      <clr-dg-row *clrDgItems="let parameter of this.formState.parameters">
+        <clr-dg-cell>{{ parameter.parameter }}</clr-dg-cell>
+        <clr-dg-cell>{{ parameter.datatype }}</clr-dg-cell>
         <clr-dg-action-overflow>
-          <button class="action-item" (click)="onParameterDelete(parameter.name)">Delete</button>
+          <button
+            class="action-item"
+            (click)="onParameterDelete(parameter.name)"
+          >
+            Delete
+          </button>
         </clr-dg-action-overflow>
-    </clr-dg-row>
+      </clr-dg-row>
 
-    <clr-dg-footer>{{this.formState.parameters.length}} parameters</clr-dg-footer>
-  </clr-datagrid>
-</div>
-
-<br/>
-
-<div class = "clr-col-12">
-  <div class="clr-form-group">
-      <label class="clr-control-label"> New Operator </label>
-    <input type="text" placeholder="name" size="30" [(ngModel)]="currentOperator.name" [ngModelOptions]="{standalone: true}"> &nbsp;
-    <input type="text" placeholder="action" size="30" [(ngModel)]="currentOperator.action" [ngModelOptions]="{standalone: true}"> &nbsp;
-     &nbsp;
-    <button class="btn btn-secondary" type="button" (click)="this.addOperator()">+</button>
+      <clr-dg-footer
+        >{{ this.formState.parameters.length }} parameters</clr-dg-footer
+      >
+    </clr-datagrid>
   </div>
-</div>
 
-<div class = "clr-col-12">
-<clr-datagrid>
-  <clr-dg-column>Name</clr-dg-column>
-  <clr-dg-column>Action</clr-dg-column>
+  <br />
 
-  <clr-dg-row *clrDgItems="let operator of this.formState.possibleOperators">
-      <clr-dg-cell>{{operator.name}}</clr-dg-cell>
-      <clr-dg-cell>{{operator.action}}</clr-dg-cell>
-      <clr-dg-action-overflow>
+  <div class="clr-col-12">
+    <div class="clr-form-group">
+      <label class="clr-control-label"> New Operator </label>
+      <input
+        type="text"
+        placeholder="name"
+        size="30"
+        [(ngModel)]="currentOperator.name"
+        [ngModelOptions]="{ standalone: true }"
+      />
+      &nbsp;
+      <input
+        type="text"
+        placeholder="action"
+        size="30"
+        [(ngModel)]="currentOperator.action"
+        [ngModelOptions]="{ standalone: true }"
+      />
+      &nbsp; &nbsp;
+      <button
+        class="btn btn-secondary"
+        type="button"
+        (click)="this.addOperator()"
+      >
+        +
+      </button>
+    </div>
+  </div>
 
-        <button class="action-item" (click)="onOperatorDelete(operator.name)">Delete</button>
-      </clr-dg-action-overflow>
-  </clr-dg-row>
+  <div class="clr-col-12">
+    <clr-datagrid>
+      <clr-dg-column>Name</clr-dg-column>
+      <clr-dg-column>Action</clr-dg-column>
 
-  <clr-dg-footer>{{this.formState.possibleOperators.length}} parameters</clr-dg-footer>
-</clr-datagrid>
-</div>
+      <clr-dg-row
+        *clrDgItems="let operator of this.formState.possibleOperators"
+      >
+        <clr-dg-cell>{{ operator.name }}</clr-dg-cell>
+        <clr-dg-cell>{{ operator.action }}</clr-dg-cell>
+        <clr-dg-action-overflow>
+          <button class="action-item" (click)="onOperatorDelete(operator.name)">
+            Delete
+          </button>
+        </clr-dg-action-overflow>
+      </clr-dg-row>
 
-<div class = "clr-col-12">
-<button class="btn btn-primary" type="button">Edit</button>
-</div>
+      <clr-dg-footer
+        >{{ this.formState.possibleOperators.length }} parameters</clr-dg-footer
+      >
+    </clr-datagrid>
+  </div>
 
+  <div class="clr-col-12">
+    <button class="btn btn-primary" type="submit">Edit</button>
+  </div>
 </form>
-
