@@ -22,6 +22,7 @@ interface IFormState {
 export class TypeDetailsComponent implements OnInit {
   submitted = false;
   id: number;
+  options: string;
   currentParameter: {name: string, datatype: string} = {name: '', datatype: ''};
   currentOperator: {name: string, action: string} = {name: '', action: ''};
   formState: BusinessRuleType = {
@@ -38,6 +39,7 @@ export class TypeDetailsComponent implements OnInit {
   constructor(private businessRuleTypeService: BusinessRuleTypeService, private route: ActivatedRoute, private router: Router) { }
 
   async ngOnInit() {
+
     this.businessRuleTypeForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.maxLength(30)]),
     nameCode: new FormControl('', [Validators.required, Validators.maxLength(4), Validators.minLength(4)]),
