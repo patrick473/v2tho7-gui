@@ -15,7 +15,6 @@ export class TypeTableComponent implements OnInit {
 
   ngOnInit() {
     this.getTypes();
-    console.log(this.types);
   }
 
   async getTypes() {
