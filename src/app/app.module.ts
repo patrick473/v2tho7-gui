@@ -41,6 +41,9 @@ import { RuleOverviewComponent } from './components/define/rule/rule-overview/ru
 import { RuleTypeSelectComponent } from './components/define/rule/rule-type-select/rule-type-select.component';
 import { RuleDetailsComponent } from './components/define/rule/rule-details/rule-details.component';
 import { HomeComponent } from './components/home/home.component';
+import { TemplateDetailsComponent } from './components/define/template/template-details/template-details.component';
+import { TemplateOverviewComponent } from './components/define/template/template-overview/template-overview.component';
+import { TemplateTableComponent } from './components/define/template/template-table/template-table.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +77,10 @@ import { HomeComponent } from './components/home/home.component';
     RuleOverviewComponent,
     RuleTypeSelectComponent,
     RuleDetailsComponent,
-    HomeComponent
+    HomeComponent,
+    TemplateDetailsComponent,
+    TemplateOverviewComponent,
+    TemplateTableComponent
   ],
   imports: [
     BrowserModule,
