@@ -1,7 +1,7 @@
-import { Router } from '@angular/router';
-import { BusinessRuleType } from 'src/app/models/rules/BusinessRuleType';
-import { BusinessRuleTypeService } from './../../../../services/define/business-rule-type.service';
-import { Component, OnInit } from '@angular/core';
+import {BusinessRuleType} from 'src/app/models/BusinessRuleType';
+import {Router} from '@angular/router';
+import {BusinessRuleTypeService} from './../../../../services/define/business-rule-type.service';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-type-table',

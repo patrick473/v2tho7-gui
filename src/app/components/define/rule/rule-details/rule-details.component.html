@@ -1,3 +1,53 @@
-<p>
-  rule-details works!
-</p>
+<form [formGroup]="form" (ngSubmit)="onSubmit()" style="width: 50%">
+  <!--<fieldset formGroupName="name">-->
+    <!--<div class="form-group">-->
+      <!--<label>First Name</label>-->
+      <!--<input type="text"-->
+             <!--class="form-control"-->
+             <!--formControlName="firstName"-->
+             <!--required>-->
+    <!--</div>-->
+
+    <!--<div class="form-group">-->
+      <!--<label>Last Name</label>-->
+      <!--<input type="text"-->
+             <!--class="form-control"-->
+             <!--formControlName="lastName"-->
+             <!--required>-->
+    <!--</div>-->
+  <!--</fieldset>-->
+
+
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text"
+           class="form-control"
+           formControlName="name"
+           required>
+  </div>
+  <div *ngIf="form.get('name').dirty && form.get('name').errors" class="error-div">
+    Name is required
+  </div>
+
+  <div class="form-group">
+    <label>Constraint</label>
+    <input type="checkbox"
+           class="form-control"
+           formControlName="constraint"
+           required>
+  </div>
+
+  <div class="form-group">
+    <label>Operator</label>
+    <input type="text"
+           class="form-control"
+           formControlName="operator"
+           required>
+  </div>
+  <div *ngIf="form.get('operator').dirty && form.get('operator').errors" class="error-div">
+    Operator is required
+  </div>
+
+
+  <button type="submit" class="btn btn-primary" >Edit</button>
+</form>

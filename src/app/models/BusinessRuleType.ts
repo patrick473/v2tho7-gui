@@ -1,5 +1,5 @@
 export  interface BusinessRuleType {
-  id?: number;
+ id?: number;
  name: string;
  nameCode: string;
  explanation: string;
