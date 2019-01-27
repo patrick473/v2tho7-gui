@@ -88,4 +88,16 @@ export class TypeDetailsComponent implements OnInit {
     console.log(this.formState);
   }
 
+  onOperatorDelete(name: string ) {
+    this.formState.possibleOperators = this.formState.possibleOperators.filter((value) => {
+      return value.name !== name;
+    });
+  }
+
+  onParameterDelete(name: string ) {
+    this.formState.parameters = this.formState.parameters.filter((value) => {
+      return value.name !== name;
+    });
+  }
+
 }
