@@ -1,6 +1,6 @@
 import { BusinessRuleTypeService } from './../../../../services/define/business-rule-type.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { BusinessRuleType } from 'src/app/models/rules/BusinessRuleType';
+import { BusinessRuleType } from 'src/app/models/BusinessRuleType';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 

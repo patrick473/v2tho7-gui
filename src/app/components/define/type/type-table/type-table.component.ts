@@ -1,4 +1,4 @@
-import { BusinessRuleType } from 'src/app/models/rules/BusinessRuleType';
+import { BusinessRuleType } from 'src/app/models/BusinessRuleType';
 import { BusinessRuleTypeService } from './../../../../services/define/business-rule-type.service';
 import { Component, OnInit } from '@angular/core';
 

@@ -1,4 +1,4 @@
-import { BusinessRuleType } from 'src/app/models/rules/BusinessRuleType';
+import { BusinessRuleType } from 'src/app/models/BusinessRuleType';
 
 import { Injectable } from '@angular/core';
 
@@ -15,19 +15,19 @@ export default class DefineAgent {
   constructor() { }
 
   public postRequest(domain: string, data: object): AxiosPromise {
-    return axios.post(`${this._baseURI}/${domain}`, data);
+    return axios.post(`${this._baseURI}${domain}`, data);
   }
 
   public getRequest(domain: string): AxiosPromise {
-    return axios.get(`${this._baseURI}/${domain}`);
+    return axios.get(`${this._baseURI}${domain}`);
   }
 
   public putRequest(domain: string, data: object): AxiosPromise {
-    return axios.put(`${this._baseURI}/${domain}`, data);
+    return axios.put(`${this._baseURI}${domain}`, data);
   }
 
   public deleteRequest(domain: string): AxiosPromise {
-    return axios.delete(`${this._baseURI}/${domain}`);
+    return axios.delete(`${this._baseURI}${domain}`);
   }
 
   public async getTypes() {
