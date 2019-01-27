@@ -22,6 +22,7 @@ interface IFormState {
 export class TypeDetailsComponent implements OnInit {
   submitted = false;
   id: number;
+  options: string;
   currentParameter: {name: string, datatype: string} = {name: '', datatype: ''};
   currentOperator: {name: string, action: string} = {name: '', action: ''};
   formState: BusinessRuleType = {
@@ -32,12 +33,13 @@ export class TypeDetailsComponent implements OnInit {
     constraintPossible: false,
     possibleOperators: [],
     parameters: [],
-    category: {name: '', id: 0}
+    category: {name: 'Static data constraint', id: 1}
   };
   businessRuleTypeForm: FormGroup;
   constructor(private businessRuleTypeService: BusinessRuleTypeService, private route: ActivatedRoute, private router: Router) { }
 
   async ngOnInit() {
+
     this.businessRuleTypeForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.maxLength(30)]),
     nameCode: new FormControl('', [Validators.required, Validators.maxLength(4), Validators.minLength(4)]),
@@ -63,19 +65,24 @@ export class TypeDetailsComponent implements OnInit {
   });
   }
 
-  onSubmit() {
+  async onSubmit() {
     // Deep clone
     let formData: IFormState = Object.assign({}, this.businessRuleTypeForm.value);
     formData = Object.assign({}, formData);
+    this.formState.name = formData.name;
+    this.formState.nameCode = formData.nameCode;
+    this.formState.example = formData.example;
+    this.formState.explanation = formData.explanation;
+    this.formState.constraintPossible = formData.constraintPossible ===  'true';
     if (this.id) {
-      this.businessRuleTypeService.updateBusinessRuleType(this.formState);
-    } else {this.businessRuleTypeService.createBusinessRuleType(this.formState); }
+      await this.businessRuleTypeService.updateBusinessRuleType(this.formState);
+    } else { await this.businessRuleTypeService.createBusinessRuleType(this.formState); }
 
-    this.router.navigate([`/target/employee`]);
+    this.router.navigate([`/define/type`]);
   }
 
   addParameter() {
-    this.formState.parameters.push(this.currentParameter);
+    this.formState.parameters.push({parameter: this.currentParameter.name, datatype: this.currentParameter.datatype});
     this.currentParameter = {name: '' , datatype: ''};
     console.log(this.formState);
   }
@@ -84,6 +91,32 @@ export class TypeDetailsComponent implements OnInit {
     this.formState.possibleOperators.push(this.currentOperator);
     this.currentOperator = {name: '' , action: ''};
     console.log(this.formState);
+  }
+
+  onOperatorDelete(name: string ) {
+    this.formState.possibleOperators = this.formState.possibleOperators.filter((value) => {
+      return value.name !== name;
+    });
+  }
+
+  onParameterDelete(name: string ) {
+    this.formState.parameters = this.formState.parameters.filter((value) => {
+      return value.parameter !== name;
+    });
+  }
+
+
+  get name() {
+    return this.businessRuleTypeForm.get('name');
+  }
+  get explanation() {
+    return this.businessRuleTypeForm.get('explanation');
+  }
+  get example() {
+    return this.businessRuleTypeForm.get('example');
+  }
+  get constraintPossible() {
+    return this.businessRuleTypeForm.get('constraintPossible');
   }
 
 }

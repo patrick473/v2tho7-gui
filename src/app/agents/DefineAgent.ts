@@ -47,6 +47,9 @@ export default class DefineAgent {
   public async createType(type: BusinessRuleType) {
     await fetch(`${this._baseURI}/type`, {
       method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify(type)
     });
 
@@ -55,6 +58,9 @@ export default class DefineAgent {
   public async updateType(type: BusinessRuleType) {
     await fetch(`${this._baseURI}/type`, {
       method: 'put',
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify(type)
     });
 
@@ -62,7 +68,10 @@ export default class DefineAgent {
   }
   public async deleteType(id: number) {
     await fetch(`${this._baseURI}/type/${id}`, {
-      method: 'delete'
+      method: 'delete',
+      headers: {
+        'Content-Type': 'application/json'
+      }
     });
 
     return true;

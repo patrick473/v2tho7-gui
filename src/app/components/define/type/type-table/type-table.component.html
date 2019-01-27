@@ -7,6 +7,10 @@
     <clr-dg-cell>{{type.id}}</clr-dg-cell>
     <clr-dg-cell>{{type.name}}</clr-dg-cell>
     <clr-dg-cell>{{type.explanation}}</clr-dg-cell>
+    <clr-dg-action-overflow>
+      <button class="action-item" (click)="onEdit(type.id)">Edit</button>
+      <button class="action-item" (click)="onDelete(type.id)">Delete</button>
+  </clr-dg-action-overflow>
   </clr-dg-row>
   <clr-dg-footer>
     <clr-dg-pagination #pagination [clrDgPageSize]="10">
