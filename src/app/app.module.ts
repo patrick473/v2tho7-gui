@@ -40,6 +40,7 @@ import { TypeDetailsComponent } from './components/define/type/type-details/type
 import { RuleOverviewComponent } from './components/define/rule/rule-overview/rule-overview.component';
 import { RuleTypeSelectComponent } from './components/define/rule/rule-type-select/rule-type-select.component';
 import { RuleDetailsComponent } from './components/define/rule/rule-details/rule-details.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { RuleDetailsComponent } from './components/define/rule/rule-details/rule
     TypeDetailsComponent,
     RuleOverviewComponent,
     RuleTypeSelectComponent,
-    RuleDetailsComponent
+    RuleDetailsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

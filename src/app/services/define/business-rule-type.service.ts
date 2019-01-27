@@ -1,7 +1,7 @@
 
 import { Injectable } from '@angular/core';
 import {BusinessRuleType} from 'src/app/models/rules/BusinessRuleType';
-import DefineAgent from 'src/app/agents/defineAgent';
+import DefineAgent from 'src/app/agents/DefineAgent';
 
 @Injectable({
   providedIn: 'root'
