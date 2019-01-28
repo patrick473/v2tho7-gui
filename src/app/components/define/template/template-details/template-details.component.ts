@@ -1,3 +1,4 @@
+import { FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TemplateDetailsComponent implements OnInit {
 
+  id: number;
+  constraintPossible: boolean;
+  triggerText: string;
+  constraintText: string;
+  databasetype: number;
+  ruletype: number;
+  databasetypes: [];
+  ruletypes: [];
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSubmit() {
+
   }
 
 }

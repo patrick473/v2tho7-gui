@@ -1,3 +1,32 @@
-<p>
-  template-details works!
-</p>
+
+<form class="clr-form-horizontal"
+clrForm
+(ngSubmit)="onSubmit()">
+
+<div class="clr-col-12"><label>Edit templates</label></div>
+
+
+<div class="clr-col-12">
+  <clr-select-container>
+    <label>Database Type</label>
+    <select clrSelect name="options" formControlName="constraintPossible" [(ngModel)]="databasetype" required>
+      <option *ngFor="let dbtype in databasetypes" value="{{dbtype.id}}">{{dbtype.name}}</option>
+      <option value="false">false</option>
+    </select>
+
+
+  </clr-select-container>
+</div>
+<div class="clr-col-12">
+  <clr-select-container>
+    <label>Constraint Possible?</label>
+    <select clrSelect name="options" formControlName="constraintPossible" [(ngModel)]="options" required>
+      <option value="true">true</option>
+      <option value="false">false</option>
+    </select>
+
+
+  </clr-select-container>
+</div>
+
+</form>

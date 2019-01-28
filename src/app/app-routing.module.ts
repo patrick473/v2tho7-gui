@@ -18,7 +18,6 @@ import { TypeDetailsComponent } from './components/define/type/type-details/type
 import { RuleTypeSelectComponent } from './components/define/rule/rule-type-select/rule-type-select.component';
 import { RuleDetailsComponent } from './components/define/rule/rule-details/rule-details.component';
 import {HomeComponent} from 'src/app/components/home/home.component';
-import { TemplateOverviewComponent } from './components/define/template/template-overview/template-overview.component';
 import { TemplateDetailsComponent } from './components/define/template/template-details/template-details.component';
 
 
@@ -40,7 +39,6 @@ const routes: Routes = [
   {path: 'define/rule/details', component: RuleDetailsWrapperComponent},
   {path: 'define/type', component: TypeOverviewComponent},
   {path: 'define/type/details', component: TypeDetailsComponent},
-  {path: 'define/template', component: TemplateOverviewComponent},
   {path: 'define/template/details', component: TemplateDetailsComponent}
 ];
 
