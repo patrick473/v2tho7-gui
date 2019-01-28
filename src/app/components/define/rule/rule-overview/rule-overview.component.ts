@@ -4,7 +4,8 @@ import BusinessRuleDao from 'src/app/models/daos/BusinessRuleDao';
 @Component({
   selector: 'app-rule-overview',
   templateUrl: './rule-overview.component.html',
-  styleUrls: ['./rule-overview.component.css']
+  styleUrls: ['./rule-overview.component.css'],
+  providers: [BusinessRuleDao]
 })
 export class RuleOverviewComponent implements OnInit {
 
