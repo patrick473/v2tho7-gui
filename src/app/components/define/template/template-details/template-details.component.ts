@@ -1,5 +1,10 @@
-import { FormGroup } from '@angular/forms';
+import { BusinessRuleTypeService } from './../../../../services/define/business-rule-type.service';
+import { TemplateService } from './../../../../services/define/template.service';
+import { DatabasetypeService } from './../../../../services/define/databasetype.service';
+import { BusinessRuleType } from 'src/app/models/BusinessRuleType';
+
 import { Component, OnInit } from '@angular/core';
+import { DatabaseType } from 'src/app/models/DatabaseType';
 
 @Component({
   selector: 'app-template-details',
@@ -14,15 +19,29 @@ export class TemplateDetailsComponent implements OnInit {
   constraintText: string;
   databasetype: number;
   ruletype: number;
-  databasetypes: [];
-  ruletypes: [];
-  constructor() { }
+  databasetypes: DatabaseType[] = [];
+  ruletypes: BusinessRuleType[] = [];
+  constructor(private databasetypeService: DatabasetypeService, private templateService: TemplateService, private businessruletypeService: BusinessRuleTypeService) { }
 
   ngOnInit() {
+    this.getDatabaseTypes();
+    this.getBusinessruleTypes();
   }
 
   onSubmit() {
 
+  }
+
+  onSelectChange() {
+    console.log(this.databasetype);
+    console.log(this.ruletype);
+  }
+
+  async getDatabaseTypes() {
+    this.databasetypes = await this.databasetypeService.getDatabaseTypes();
+  }
+  async getBusinessruleTypes() {
+    this.ruletypes = await this.businessruletypeService.getBusinessRuleTypes();
   }
 
 }

@@ -1,32 +1,43 @@
 
-<form class="clr-form-horizontal"
+<form class="clr-form form-block"
 clrForm
 (ngSubmit)="onSubmit()">
 
-<div class="clr-col-12"><label>Edit templates</label></div>
+<div class=""><label>Edit templates</label></div>
 
 
-<div class="clr-col-12">
-  <clr-select-container>
+<div class=" form-group">
+
     <label>Database Type</label>
-    <select clrSelect name="options" formControlName="constraintPossible" [(ngModel)]="databasetype" required>
-      <option *ngFor="let dbtype in databasetypes" value="{{dbtype.id}}">{{dbtype.name}}</option>
-      <option value="false">false</option>
+    <select for="dtyp" clrSelect name="options" name="databasetype" [(ngModel)]="databasetype" (change)="onSelectChange()" required>
+      <option id="dtyp" *ngFor="let dbtype of databasetypes" [value]="dbtype.id">{{dbtype.dialect}}</option>
     </select>
 
-
-  </clr-select-container>
 </div>
-<div class="clr-col-12">
-  <clr-select-container>
-    <label>Constraint Possible?</label>
-    <select clrSelect name="options" formControlName="constraintPossible" [(ngModel)]="options" required>
-      <option value="true">true</option>
-      <option value="false">false</option>
+<div class="form-group">
+
+    <label for="btyp">Businessrule type</label>
+    <select id="btyp" clrSelect name="ruletype"   (change)="onSelectChange()" [(ngModel)]="ruletype" required>
+      <option *ngFor="let brtype of ruletypes" [value]="brtype.id">{{brtype.name}}</option>
     </select>
 
-
-  </clr-select-container>
 </div>
+<br>
+<hr>
+<br>
+<div class="form-group">
 
+  <label for="trigtemp">Trigger Template</label>
+  <textarea id="trigtemp" name="triggerText" [(ngModel)]="triggerText"  rows="10"></textarea>
+
+</div>
+<div class="form-group">
+
+  <label for="consttemp">Constraint Template</label>
+  <textarea id="consttemp" name="constraintText" [(ngModel)]="constraintText"  rows="5"></textarea>
+
+</div>
+<div class="form-group">
+  <button class="btn btn-primary" type="submit">Edit</button>
+</div>
 </form>

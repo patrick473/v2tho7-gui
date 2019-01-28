@@ -39,7 +39,14 @@
                     <li><a class="nav-link" [routerLink]="['/define/rule/new/create']">new rule</a></li>
                 </ul>
             </section>
+            <section class="nav-group" *ngIf="defineActive" >
+              <input id="defineBusinessRule" type="checkbox">
+              <label for="defineBusinessRule">Templates</label>
+              <ul class="nav-list">
+                  <li><a class="nav-link" [routerLink]="['/define/template/details']">Template editor</a></li>
 
+              </ul>
+          </section>
             </section>
         </nav>
     </div>
