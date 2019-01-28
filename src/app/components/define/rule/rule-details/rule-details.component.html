@@ -1,32 +1,13 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()" style="width: 50%">
-  <!--<fieldset formGroupName="name">-->
-    <!--<div class="form-group">-->
-      <!--<label>First Name</label>-->
-      <!--<input type="text"-->
-             <!--class="form-control"-->
-             <!--formControlName="firstName"-->
-             <!--required>-->
-    <!--</div>-->
-
-    <!--<div class="form-group">-->
-      <!--<label>Last Name</label>-->
-      <!--<input type="text"-->
-             <!--class="form-control"-->
-             <!--formControlName="lastName"-->
-             <!--required>-->
-    <!--</div>-->
-  <!--</fieldset>-->
-
-
   <div class="form-group">
     <label>Name</label>
     <input type="text"
            class="form-control"
            formControlName="name"
-           required>
+           >
   </div>
   <div *ngIf="form.get('name').dirty && form.get('name').errors" class="error-div">
-    Name is required
+    Name is 
   </div>
 
   <div class="form-group">
@@ -34,7 +15,7 @@
     <input type="checkbox"
            class="form-control"
            formControlName="constraint"
-           required>
+           >
   </div>
 
   <div class="form-group">
@@ -42,12 +23,113 @@
     <input type="text"
            class="form-control"
            formControlName="operator"
-           required>
+           >
   </div>
   <div *ngIf="form.get('operator').dirty && form.get('operator').errors" class="error-div">
-    Operator is required
+    Operator is 
   </div>
 
+  <fieldset formGroupName="bindings">
+    Bindings:
+    <fieldset formGroupName="0">
+      <div style="float:left">
+        <label>Key</label>
+        <input type="text"
+               class="form-control"
+               formControlName="key"
+               >
+      </div>
+      <div>
+        <label style="margin-left:20px;">Value</label>
+        <input type="text"
+               class="form-control"
+               formControlName="value"
+               >
+      </div>
+    </fieldset>
+    <fieldset formGroupName="1">
+      <div style="float:left">
+        <label>Key</label>
+        <input type="text"
+               class="form-control"
+               formControlName="key"
+               >
+      </div>
+      <div>
+        <label style="margin-left:20px;">Value</label>
+        <input type="text"
+               class="form-control"
+               formControlName="value"
+               >
+      </div>
+    </fieldset>
+    <fieldset formGroupName="2">
+      <div style="float:left">
+        <label>Key</label>
+        <input type="text"
+               class="form-control"
+               formControlName="key"
+               >
+      </div>
+      <div>
+        <label style="margin-left:20px;">Value</label>
+        <input type="text"
+               class="form-control"
+               formControlName="value"
+               >
+      </div>
+    </fieldset>
+  </fieldset>
 
-  <button type="submit" class="btn btn-primary" >Edit</button>
+  <div class="form-group" *ngIf="types" style="margin-top: 20px;">
+    <label for="type">Type</label>
+    <select class="form-control"  formControlName="type" id="type">
+      <option *ngFor="let type of types" value="{{type.id}}">{{type.name}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Table</label>
+    <input type="text"
+           class="form-control"
+           formControlName="table"
+           >
+  </div>
+  <div *ngIf="form.get('table').dirty && form.get('table').errors" class="error-div">
+    Table is 
+  </div>
+
+  <fieldset formGroupName="modifyTypes">
+    <div class="modify-types">
+      <label>Insert</label>
+      <input type="checkbox"
+             class="form-control"
+             formControlName="insert"
+             >
+      <label>Update</label>
+      <input type="checkbox"
+             class="form-control"
+             formControlName="update"
+             >
+      <label>Delete</label>
+      <input type="checkbox"
+             class="form-control"
+             formControlName="delete"
+             >
+    </div>
+  </fieldset>
+
+  <div class="form-group">
+    <label>Error message</label>
+    <input type="text"
+           class="form-control"
+           formControlName="error"
+           >
+  </div>
+  <div *ngIf="form.get('error').dirty && form.get('error').errors" class="error-div">
+    Table is 
+  </div>
+
+  <pre> {{ form.value | json }}</pre>
+  <button type="submit" class="btn btn-primary">Edit</button>
 </form>
