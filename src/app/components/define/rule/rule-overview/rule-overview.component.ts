@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import BusinessRuleDao from 'src/app/models/daos/BusinessRuleDao';
 
 @Component({
   selector: 'app-rule-overview',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RuleOverviewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private businessRuleDao: BusinessRuleDao) {
+    console.log(this.businessRuleDao.getAll());
+  }
 
   ngOnInit() {
+
   }
 
 }

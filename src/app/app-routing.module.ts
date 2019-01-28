@@ -30,11 +30,8 @@ const routes: Routes = [
   {path: 'target/project/details', component: ProjectDetailsComponent},
   {path: 'target/employee', component: EmployeeOverviewComponent},
   {path: 'target/employee/details', component: EmployeeDetailsComponent},
-  // define paths
   {path: 'define/rule', component: RuleOverviewComponent},
-  // choose type
   {path: 'define/rule/type/select', component: RuleTypeSelectComponent},
-  // create rule
   {path: 'define/rule/new/create', component: RuleDetailsComponent},
   {path: 'define/rule/details', component: RuleDetailsWrapperComponent},
   {path: 'define/type', component: TypeOverviewComponent},
