@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import BusinessRuleDao from 'src/app/models/daos/BusinessRuleDao';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {BusinessRuleTypeService} from 'src/app/services/define/business-rule-type.service';
+import {BusinessRuleType} from 'src/app/models/BusinessRuleType';
+import {BusinessRule} from 'src/app/models/BusinessRule';
 
 @Component({
   selector: 'app-rule-details',
@@ -12,14 +15,16 @@ export class RuleDetailsComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor() {
+  types: BusinessRuleType[];
+
+  constructor(private businessRuleDao: BusinessRuleDao, private businessRuleTypeService: BusinessRuleTypeService) {
 
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.form = new FormGroup({
       name: new FormControl('', Validators.required),
-      constraint: new FormControl('', Validators.required),
+      constraint: new FormControl(false, Validators.required), // Set this value to something else if the detail is an update instead of new create.
       operator: new FormControl('', Validators.required),
       bindings: new FormGroup({
         0: new FormGroup({
@@ -38,17 +43,19 @@ export class RuleDetailsComponent implements OnInit {
       type: new FormControl('', Validators.required),
       table: new FormControl('', Validators.required),
       modifyTypes: new FormGroup({
-        insert: new FormControl('', Validators.required),
-        update: new FormControl('', Validators.required),
-        delete: new FormControl('', Validators.required)
+        insert: new FormControl(false, Validators.required), // Set this value to something else if the detail is an update instead of new create.
+        update: new FormControl(false, Validators.required), // Set this value to something else if the detail is an update instead of new create.
+        delete: new FormControl(false, Validators.required) // Set this value to something else if the detail is an update instead of new create.
       }),
-      error: new FormControl()
+      error: new FormControl('', Validators.required)
     });
+    this.types = await this.businessRuleTypeService.getBusinessRuleTypes();
   }
 
-  onSubmit() {
+  async onSubmit() {
     if (this.form.valid) {
-
+       const result = await this.businessRuleDao.create(<BusinessRule>this.form.value);
+       console.log(result);
     } else {
       console.log(this.form.errors);
     }

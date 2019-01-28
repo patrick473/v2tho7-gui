@@ -18,8 +18,13 @@ export default class BusinessRuleDao {
     return await this.defineAgent.getRequest(domain);
   }
 
-  async update(id: string, updatedRule: BusinessRule) {
-    const domain = `rule/${id}`;
+  async update(updatedRule: BusinessRule) {
+    const domain = `rule/${updatedRule.id}`;
     return await this.defineAgent.putRequest(domain, updatedRule);
+  }
+
+  async create(ruleToCreate: BusinessRule) {
+    const domain = `rule`;
+    return await this.defineAgent.postRequest(domain, ruleToCreate);
   }
 }
