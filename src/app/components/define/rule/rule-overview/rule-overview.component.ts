@@ -1,4 +1,4 @@
-import { BusinessruleService } from './../../../../services/define/businessrule.service';
+
 import { Component, OnInit } from '@angular/core';
 
 
@@ -10,8 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RuleOverviewComponent implements OnInit {
 
-  constructor(private businessRuleDao: BusinessruleService) {
-    console.log(this.businessRuleDao.getAll());
+  constructor() {
   }
 
   ngOnInit() {

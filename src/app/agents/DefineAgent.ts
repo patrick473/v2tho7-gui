@@ -151,4 +151,15 @@ export default class DefineAgent {
     });
    return true;
   }
+  public async deleteRule(id: number) {
+    await fetch(`${this._baseURI}/rule/${id}`, {
+      method: 'delete',
+
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    });
+
+    return true;
+  }
   }

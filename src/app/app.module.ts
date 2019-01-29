@@ -23,7 +23,6 @@ import { DepartmentDetailsComponent } from './components/target/Department/depar
 
 import { GenerateOverviewComponent } from './components/generate/generate-overview/generate-overview.component';
 import { GenerateTableComponent } from './components/generate/generate-table/generate-table.component';
-import { NewOverviewComponent } from './components/define/new/new-overview/new-overview.component';
 import { RuleDetailsWrapperComponent } from './components/define/details/rule-details-wrapper/rule-details-wrapper.component';
 import { ArngFormComponent } from './components/define/details/type-forms/arng-form/arng-form.component';
 import { AcmpFormComponent } from './components/define/details/type-forms/acmp-form/acmp-form.component';
@@ -59,7 +58,6 @@ import { RuleTableComponent } from './components/define/rule/rule-table/rule-tab
     DepartmentDetailsComponent,
     GenerateOverviewComponent,
     GenerateTableComponent,
-    NewOverviewComponent,
     RuleDetailsWrapperComponent,
     ArngFormComponent,
     AcmpFormComponent,

@@ -1,135 +1,93 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()" style="width: 50%">
-  <div class="form-group">
-    <label>Name</label>
-    <input type="text"
-           class="form-control"
-           formControlName="name"
-           >
-  </div>
-  <div *ngIf="form.get('name').dirty && form.get('name').errors" class="error-div">
-    Name is 
-  </div>
-
-  <div class="form-group">
-    <label>Constraint</label>
-    <input type="checkbox"
-           class="form-control"
-           formControlName="constraint"
-           >
+<form
+  [formGroup]="form"
+  clrForm
+  (ngSubmit)="onSubmit()"
+  class="clr-form-horizontal"
+>
+  <div class="clr-col-12"><label>Businessrule details</label></div>
+  <div class="clr-col-12">
+  <clr-input-container>
+      <label>Name</label>
+      <input type="text" clrInput class="form-control" formControlName="name" />
+  </clr-input-container>
   </div>
 
-  <div class="form-group">
-    <label>Operator</label>
-    <input type="text"
-           class="form-control"
-           formControlName="operator"
-           >
-  </div>
-  <div *ngIf="form.get('operator').dirty && form.get('operator').errors" class="error-div">
-    Operator is 
-  </div>
 
-  <fieldset formGroupName="bindings">
-    Bindings:
-    <fieldset formGroupName="0">
-      <div style="float:left">
-        <label>Key</label>
-        <input type="text"
-               class="form-control"
-               formControlName="key"
-               >
+  <div class="clr-col-12">
+      <clr-select-container>
+        <label>Constraint </label>
+        <select clrSelect name="options" formControlName="constraint" required>
+          <option value="true">true</option>
+          <option value="false">false</option>
+        </select>
+      </clr-select-container>
+    </div>
+
+    <div class="clr-col-12">
+        <clr-select-container>
+          <label>Operator </label>
+          <select clrSelect name="options" formControlName="operator" required>
+            <option value="true">true</option>
+            <option value="false">false</option>
+          </select>
+        </clr-select-container>
       </div>
-      <div>
-        <label style="margin-left:20px;">Value</label>
-        <input type="text"
-               class="form-control"
-               formControlName="value"
-               >
+
+    <div formArrayName="bindings">
+        <div class="clr-col-12"><label>Businessrule details</label></div>
+        <div *ngFor="let binding of bindings.controls; let i=index">
+
+        <div class="clr-col-12" >
+            <clr-input-container>
+                <label>{{bindingLabels[i]}}</label>
+                <input type="text" clrInput class="form-control" formControlName="{{i}}" />
+            </clr-input-container>
+        </div>
       </div>
-    </fieldset>
-    <fieldset formGroupName="1">
-      <div style="float:left">
-        <label>Key</label>
-        <input type="text"
-               class="form-control"
-               formControlName="key"
-               >
-      </div>
-      <div>
-        <label style="margin-left:20px;">Value</label>
-        <input type="text"
-               class="form-control"
-               formControlName="value"
-               >
-      </div>
-    </fieldset>
-    <fieldset formGroupName="2">
-      <div style="float:left">
-        <label>Key</label>
-        <input type="text"
-               class="form-control"
-               formControlName="key"
-               >
-      </div>
-      <div>
-        <label style="margin-left:20px;">Value</label>
-        <input type="text"
-               class="form-control"
-               formControlName="value"
-               >
-      </div>
-    </fieldset>
-  </fieldset>
+
+    </div>
 
   <div class="form-group" *ngIf="types" style="margin-top: 20px;">
     <label for="type">Type</label>
-    <select class="form-control"  formControlName="type" id="type">
-      <option *ngFor="let type of types" value="{{type.id}}">{{type.name}}</option>
+    <select class="form-control" formControlName="type" id="type">
+      <option *ngFor="let type of types" value="{{ type.id }}">{{
+        type.name
+      }}</option>
     </select>
   </div>
 
   <div class="form-group">
     <label>Table</label>
-    <input type="text"
-           class="form-control"
-           formControlName="table"
-           >
+    <input type="text" class="form-control" formControlName="table" />
   </div>
-  <div *ngIf="form.get('table').dirty && form.get('table').errors" class="error-div">
-    Table is 
+  <div
+    *ngIf="form.get('table').dirty && form.get('table').errors"
+    class="error-div"
+  >
+    Table is
   </div>
 
   <fieldset formGroupName="modifyTypes">
     <div class="modify-types">
       <label>Insert</label>
-      <input type="checkbox"
-             class="form-control"
-             formControlName="insert"
-             >
+      <input type="checkbox" class="form-control" formControlName="insert" />
       <label>Update</label>
-      <input type="checkbox"
-             class="form-control"
-             formControlName="update"
-             >
+      <input type="checkbox" class="form-control" formControlName="update" />
       <label>Delete</label>
-      <input type="checkbox"
-             class="form-control"
-             formControlName="delete"
-             >
+      <input type="checkbox" class="form-control" formControlName="delete" />
     </div>
   </fieldset>
 
   <div class="form-group">
     <label>Error message</label>
-    <input type="text"
-           class="form-control"
-           formControlName="error"
-           >
+    <input type="text" class="form-control" formControlName="error" />
   </div>
-  <div *ngIf="form.get('error').dirty && form.get('error').errors" class="error-div">
-    Table is 
+  <div
+    *ngIf="form.get('error').dirty && form.get('error').errors"
+    class="error-div"
+  >
+    Table is
   </div>
 
-  <pre> {{ form.value | json }}</pre>
   <button type="submit" class="btn btn-primary">Edit</button>
 </form>

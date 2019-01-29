@@ -1,6 +1,4 @@
 
-
-import { NewOverviewComponent } from './components/define/new/new-overview/new-overview.component';
 import { GenerateOverviewComponent } from './components/generate/generate-overview/generate-overview.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -15,12 +13,10 @@ import { ProjectDetailsComponent } from './components/target/Project/project-det
 import { TypeOverviewComponent } from './components/define/type/type-overview/type-overview.component';
 import { RuleOverviewComponent } from './components/define/rule/rule-overview/rule-overview.component';
 import { TypeDetailsComponent } from './components/define/type/type-details/type-details.component';
-import { RuleTypeSelectComponent } from './components/define/rule/rule-type-select/rule-type-select.component';
+
 import { RuleDetailsComponent } from './components/define/rule/rule-details/rule-details.component';
 import {HomeComponent} from 'src/app/components/home/home.component';
 import { TemplateDetailsComponent } from './components/define/template/template-details/template-details.component';
-
-
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -31,9 +27,7 @@ const routes: Routes = [
   {path: 'target/employee', component: EmployeeOverviewComponent},
   {path: 'target/employee/details', component: EmployeeDetailsComponent},
   {path: 'define/rule', component: RuleOverviewComponent},
-  {path: 'define/rule/type/select', component: RuleTypeSelectComponent},
-  {path: 'define/rule/new/create', component: RuleDetailsComponent},
-  {path: 'define/rule/details', component: RuleDetailsWrapperComponent},
+  {path: 'define/rule/details', component: RuleDetailsComponent},
   {path: 'define/type', component: TypeOverviewComponent},
   {path: 'define/type/details', component: TypeDetailsComponent},
   {path: 'define/template/details', component: TemplateDetailsComponent}

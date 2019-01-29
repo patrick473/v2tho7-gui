@@ -11,7 +11,12 @@ export class BusinessruleService {
 
   }
 
-
+  async getRules() {
+    return await this.defineAgent.getRules();
+  }
+  async delete(id: number) {
+    return await this.defineAgent.deleteRule(id);
+  }
   async getAll() {
     const domain = 'rule/all';
     return await this.defineAgent.getRequest(domain);
@@ -31,4 +36,5 @@ export class BusinessruleService {
     const domain = `rule`;
     return await this.defineAgent.postRequest(domain, ruleToCreate);
   }
+
 }
