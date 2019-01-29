@@ -1,12 +1,16 @@
+import { BusinessRule } from 'src/app/models/BusinessRule';
 import DefineAgent from 'src/app/agents/DefineAgent';
-import {Injectable} from '@angular/core';
-import {BusinessRule} from 'src/app/models/BusinessRule';
+import { Injectable } from '@angular/core';
 
-@Injectable()
-export default class BusinessRuleDao {
+@Injectable({
+  providedIn: 'root'
+})
+export class BusinessruleService {
+
   constructor(private defineAgent: DefineAgent) {
 
   }
+
 
   async getAll() {
     const domain = 'rule/all';

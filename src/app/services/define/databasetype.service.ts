@@ -18,7 +18,7 @@ export class DatabasetypeService {
       constraintTemplate: ''
 
     };
-    return [type, type, type];
+    return [type];
   }
   getDatabaseType(id: number):  Promise<DatabaseType> {
 

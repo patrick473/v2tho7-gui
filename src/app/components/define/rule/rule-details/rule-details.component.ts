@@ -1,15 +1,17 @@
+import { BusinessruleService } from './../../../../services/define/businessrule.service';
 import { Component, OnInit } from '@angular/core';
-import BusinessRuleDao from 'src/app/models/daos/BusinessRuleDao';
+
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {BusinessRuleTypeService} from 'src/app/services/define/business-rule-type.service';
 import {BusinessRuleType} from 'src/app/models/BusinessRuleType';
 import {BusinessRule} from 'src/app/models/BusinessRule';
 
+
 @Component({
   selector: 'app-rule-details',
   templateUrl: './rule-details.component.html',
   styleUrls: ['./rule-details.component.css'],
-  providers: [BusinessRuleDao]
+  providers: []
 })
 export class RuleDetailsComponent implements OnInit {
 
@@ -17,7 +19,7 @@ export class RuleDetailsComponent implements OnInit {
 
   types: BusinessRuleType[];
 
-  constructor(private businessRuleDao: BusinessRuleDao, private businessRuleTypeService: BusinessRuleTypeService) {
+  constructor(private businessruleService: BusinessruleService, private businessRuleTypeService: BusinessRuleTypeService) {
 
   }
 
@@ -54,7 +56,7 @@ export class RuleDetailsComponent implements OnInit {
 
   async onSubmit() {
     if (this.form.valid) {
-       const result = await this.businessRuleDao.create(<BusinessRule>this.form.value);
+       const result = await this.businessruleService.create(<BusinessRule>this.form.value);
        console.log(result);
     } else {
       console.log(this.form.errors);

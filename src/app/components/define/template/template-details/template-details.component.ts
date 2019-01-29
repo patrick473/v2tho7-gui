@@ -5,6 +5,7 @@ import { BusinessRuleType } from 'src/app/models/BusinessRuleType';
 
 import { Component, OnInit } from '@angular/core';
 import { DatabaseType } from 'src/app/models/DatabaseType';
+import { Template } from 'src/app/models/Template';
 
 @Component({
   selector: 'app-template-details',
@@ -15,12 +16,24 @@ export class TemplateDetailsComponent implements OnInit {
 
   id: number;
   constraintPossible: boolean;
-  triggerText: string;
-  constraintText: string;
+  trigger: Template = {
+    sqldialect: 0,
+    businessruletype: 0,
+    template: '',
+    isconstraint: false,
+  };
+  constraint: Template = {
+    sqldialect: 0,
+    businessruletype: 0,
+    template: '',
+    isconstraint: true,
+  };
   databasetype: number;
   ruletype: number;
   databasetypes: DatabaseType[] = [];
   ruletypes: BusinessRuleType[] = [];
+  updateTrigger = false;
+  updateConstraint = false;
   constructor(private databasetypeService: DatabasetypeService, private templateService: TemplateService, private businessruletypeService: BusinessRuleTypeService) { }
 
   ngOnInit() {
@@ -29,12 +42,16 @@ export class TemplateDetailsComponent implements OnInit {
   }
 
   onSubmit() {
-
+    this.submitTemplates();
   }
 
   onSelectChange() {
     console.log(this.databasetype);
     console.log(this.ruletype);
+    if (this.ruletype && this.databasetype) {
+      this.getTemplates();
+    }
+
   }
 
   async getDatabaseTypes() {
@@ -42,6 +59,47 @@ export class TemplateDetailsComponent implements OnInit {
   }
   async getBusinessruleTypes() {
     this.ruletypes = await this.businessruletypeService.getBusinessRuleTypes();
+  }
+  async getTemplates() {
+    const templates: Template[] = await this.templateService.getTemplates(this.ruletype, +this.databasetype);
+    console.log(templates);
+    if (templates.length > 0) {
+      if (templates.find(template => template.isconstraint === true)) {
+        this.constraint = templates.find(template => template.isconstraint === true);
+        this.updateConstraint = true;
+      } else {
+        this.updateConstraint = false;
+      }
+      if (templates.find(template => template.isconstraint === false)) {
+        this.trigger = templates.find(template => template.isconstraint === false);
+        this.updateTrigger = true;
+      } else {
+        this.updateTrigger = false;
+      }
+    } else {
+      this.updateConstraint = false;
+      this.updateTrigger = false;
+      this.trigger.template = '';
+      this.constraint.template = '';
+      this.trigger.sqldialect = this.databasetype;
+      this.trigger.businessruletype = this.ruletype;
+      this.constraint.sqldialect = this.databasetype;
+      this.constraint.businessruletype = this.ruletype;
+    }
+
+  }
+  async submitTemplates() {
+
+    if (this.updateTrigger) {
+      this.templateService.updateTemplate(this.trigger);
+    } else {
+      this.templateService.createTemplate(this.trigger);
+    }
+    if (this.updateConstraint) {
+      this.templateService.updateTemplate(this.constraint);
+    } else {
+      this.templateService.createTemplate(this.constraint);
+    }
   }
 
 }

@@ -1,15 +1,16 @@
+import { BusinessruleService } from './../../../../services/define/businessrule.service';
 import { Component, OnInit } from '@angular/core';
-import BusinessRuleDao from 'src/app/models/daos/BusinessRuleDao';
+
 
 @Component({
   selector: 'app-rule-overview',
   templateUrl: './rule-overview.component.html',
   styleUrls: ['./rule-overview.component.css'],
-  providers: [BusinessRuleDao]
+  providers: []
 })
 export class RuleOverviewComponent implements OnInit {
 
-  constructor(private businessRuleDao: BusinessRuleDao) {
+  constructor(private businessRuleDao: BusinessruleService) {
     console.log(this.businessRuleDao.getAll());
   }
 

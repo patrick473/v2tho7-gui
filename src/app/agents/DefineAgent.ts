@@ -1,3 +1,4 @@
+import { Template } from 'src/app/models/Template';
 import { BusinessRuleType } from 'src/app/models/BusinessRuleType';
 
 import { Injectable } from '@angular/core';
@@ -32,14 +33,16 @@ export default class DefineAgent {
 
   public async getTypes() {
     const res = await fetch( `${this._baseURI}/type/all`, {
-      method: 'get'
+      method: 'get',
+
     });
     const json: IResult = await res.json();
     return json.object as BusinessRuleType[];
   }
   public async getType(id: number) {
     const res = await fetch( `${this._baseURI}/type/${id}`, {
-      method: 'get'
+      method: 'get',
+
     });
     const json: IResult = await res.json();
     return json.object as BusinessRuleType;
@@ -47,8 +50,9 @@ export default class DefineAgent {
   public async createType(type: BusinessRuleType) {
     await fetch(`${this._baseURI}/type`, {
       method: 'post',
+
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(type)
     });
@@ -58,8 +62,9 @@ export default class DefineAgent {
   public async updateType(type: BusinessRuleType) {
     await fetch(`${this._baseURI}/type`, {
       method: 'put',
+
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(type)
     });
@@ -69,11 +74,43 @@ export default class DefineAgent {
   public async deleteType(id: number) {
     await fetch(`${this._baseURI}/type/${id}`, {
       method: 'delete',
+
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       }
     });
 
     return true;
+  }
+  public async getTemplate(dbtype: number, ruletype: number) {
+    const res = await fetch(`${this._baseURI}/template/${ruletype}/${dbtype}`, {
+      method: 'get',
+
+    }).catch( function() {
+      return {} as Response;
+    } );
+    const json: IResult = await res.json();
+    return json.object as Template[];
+  }
+
+  public async createTemplate(template: Template) {
+    await fetch(`${this._baseURI}/template`, {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(template)
+    });
+   return true;
+  }
+  public async updateTemplate(template: Template) {
+    await fetch(`${this._baseURI}/template`, {
+      method: 'put',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(template)
+    });
+   return true;
   }
   }

@@ -15,6 +15,7 @@ export class BusinessRuleTypeService {
 
    async getBusinessRuleTypes(): Promise<BusinessRuleType[]>  {
     return this._defineAgent.getTypes();
+
   }
   async getBusinessRuleType(id: number): Promise<BusinessRuleType>  {
     return this._defineAgent.getType(id);
