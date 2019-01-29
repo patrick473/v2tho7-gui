@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 
 import axios, {AxiosPromise} from 'axios';
 import { IResult } from './IResult';
+import { BusinessRule } from '../models/BusinessRule';
 
 @Injectable({
   providedIn: 'root'
@@ -110,6 +111,43 @@ export default class DefineAgent {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(template)
+    });
+   return true;
+  }
+
+  public async getRules() {
+    const res = await fetch( `${this._baseURI}/rule/all`, {
+      method: 'get',
+    });
+    const json: IResult = await res.json();
+    return json.object as BusinessRule[];
+  }
+
+  public async getRule(id: number) {
+    const res = await fetch( `${this._baseURI}/rule/${id}`, {
+      method: 'get',
+    });
+    const json: IResult = await res.json();
+    return json.object as BusinessRule;
+  }
+
+  public async updateRule(updatedRule: BusinessRule) {
+    await fetch(`${this._baseURI}/rule`, {
+      method: 'put',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(updatedRule)
+    });
+   return true;
+  }
+  public async createRule(rule: BusinessRule) {
+    await fetch(`${this._baseURI}/rule`, {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(rule)
     });
    return true;
   }

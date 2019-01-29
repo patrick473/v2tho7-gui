@@ -42,6 +42,7 @@ import { RuleTypeSelectComponent } from './components/define/rule/rule-type-sele
 import { RuleDetailsComponent } from './components/define/rule/rule-details/rule-details.component';
 import { HomeComponent } from './components/home/home.component';
 import { TemplateDetailsComponent } from './components/define/template/template-details/template-details.component';
+import { RuleTableComponent } from './components/define/rule/rule-table/rule-table.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import { TemplateDetailsComponent } from './components/define/template/template-
     RuleDetailsComponent,
     HomeComponent,
     TemplateDetailsComponent,
+    RuleTableComponent,
   ],
   imports: [
     BrowserModule,
