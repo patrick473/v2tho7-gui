@@ -151,6 +151,16 @@ export default class DefineAgent {
     });
    return true;
   }
+  public async applyRule(id: number, apply: number) {
+    await fetch(`${this._baseURI}rule/apply`, {
+      method: 'put',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: `{"id":${id}, "applied": ${apply}}`
+    });
+   return true;
+  }
   public async deleteRule(id: number) {
     await fetch(`${this._baseURI}rule/${id}`, {
       method: 'delete',

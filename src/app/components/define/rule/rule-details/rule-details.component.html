@@ -14,7 +14,7 @@
         clrSelect
         name="ruletype"
         (change)="onSelectChange()"
-        [(ngModel)]="ruletype"
+        [(ngModel)]="ruletypeID"
         [ngModelOptions]="{ standalone: true }"
         required
       >
@@ -24,7 +24,7 @@
       </select>
     </clr-select-container>
   </div>
-  <div>
+  <div [hidden]="formHidden">
       <div class="clr-col-12">
           <clr-input-container>
             <label>Name</label>
@@ -48,14 +48,22 @@
     </div>
 
     <div class="clr-col-12">
-      <clr-select-container>
-        <label>Operator </label>
-        <select clrSelect name="options" formControlName="operator" required>
-          <option value="true">true</option>
-          <option value="false">false</option>
-        </select>
-      </clr-select-container>
-    </div>
+        <clr-select-container>
+          <label for="btyp">Operator </label>
+          <select
+            id="btyp"
+            clrSelect
+            name="ruletype"
+
+            formControlName="operator"
+            required
+          >
+            <option *ngFor="let op of operators" [value]="op.id">{{
+              op.name
+            }}</option>
+          </select>
+        </clr-select-container>
+      </div>
 
 
 
@@ -111,7 +119,7 @@
         </clr-input-container>
       </div>
       <div formArrayName="bindings">
-          <div class="clr-col-12"><label>Businessrule details</label></div>
+
           <div *ngFor="let binding of bindings.controls; let i = index">
             <div class="clr-col-12">
               <clr-input-container>

@@ -14,27 +14,20 @@ export class BusinessruleService {
   async getRules() {
     return await this.defineAgent.getRules();
   }
+  async getRule(id: number) {
+    return await this.defineAgent.getRule(id);
+  }
   async delete(id: number) {
     return await this.defineAgent.deleteRule(id);
   }
-  async getAll() {
-    const domain = 'rule/all';
-    return await this.defineAgent.getRequest(domain);
+  async create(rule: BusinessRule) {
+    return await this.defineAgent.createRule(rule);
   }
-
-  async get(id: string) {
-    const domain = `rule/${id}`;
-    return await this.defineAgent.getRequest(domain);
+  async update(rule: BusinessRule) {
+    return await this.defineAgent.updateRule(rule);
   }
-
-  async update(updatedRule: BusinessRule) {
-    const domain = `rule/${updatedRule.id}`;
-    return await this.defineAgent.putRequest(domain, updatedRule);
-  }
-
-  async create(ruleToCreate: BusinessRule) {
-    const domain = `rule`;
-    return await this.defineAgent.postRequest(domain, ruleToCreate);
+  async apply(ruleID: number, apply: boolean) {
+    return await this.defineAgent.applyRule(ruleID, apply ? 0 : 1);
   }
 
 }

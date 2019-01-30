@@ -1,9 +1,6 @@
-
-import { GenerateOverviewComponent } from './components/generate/generate-overview/generate-overview.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { RuleDetailsWrapperComponent } from './components/define/details/rule-details-wrapper/rule-details-wrapper.component';
 import { DepartmentDetailsComponent } from './components/target/Department/department-details/department-details.component';
 import { EmployeeDetailsComponent } from './components/target/Employee/employee-details/employee-details.component';
 import { ProjectOverviewComponent } from './components/target/Project/project-overview/project-overview.component';

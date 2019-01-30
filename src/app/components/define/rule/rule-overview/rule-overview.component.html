@@ -1,1 +1,12 @@
+<h1>Businessrules</h1>
+<br>
+<button (click)="generate()" class="btn btn-sm compact" >Generate rules</button>
+<a class="btn btn-sm compact" [routerLink]="['details']">Add Businessrule type</a>
+
+<span [hidden]="notGenerating" class="spinner spinner-inline">
+    Generating...
+</span>
+<span [hidden]="notGenerating">
+    Generating...
+</span>
 <app-rule-table></app-rule-table>

@@ -5,7 +5,7 @@ export  interface BusinessRuleType {
  explanation: string;
  example: string;
  constraintPossible: boolean;
- possibleOperators: Array<{name: string; action: string}>;
+ possibleOperators: Array<{id: number, name: string; action: string}>;
  parameters: Array<{parameter: string; datatype: string}>;
  category: {name: string, id: number};
 }

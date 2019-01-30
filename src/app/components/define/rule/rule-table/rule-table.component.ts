@@ -20,14 +20,15 @@ export class RuleTableComponent implements OnInit {
   async getBusinessrules() {
     this.businessrules = await this.businessruleService.getRules();
   }
-  onEdit(id: number): void {
-    this.router.navigate([`/define/rule/details`], {queryParams: {id}} );
+  onEdit(rule: BusinessRule): void {
+    this.router.navigate([`/define/rule/details`], {queryParams: {id: rule.id, type: rule.type}} );
   }
   onDelete(id: number): void {
     this.businessruleService.delete(id);
     this.businessrules = this.businessrules.filter( value =>  value.id !== id);
   }
-  onApply(id: number): void {
-    console.log(id);
+  async onApply(rule: BusinessRule) {
+    await this.businessruleService.apply(rule.id, rule.applied);
+    this.getBusinessrules();
   }
 }

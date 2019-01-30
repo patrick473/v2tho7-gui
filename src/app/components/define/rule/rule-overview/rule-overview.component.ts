@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RuleOverviewComponent implements OnInit {
 
+  notGenerating = true;
   constructor() {
   }
 
@@ -17,4 +18,11 @@ export class RuleOverviewComponent implements OnInit {
 
   }
 
+  async generate() {
+    this.notGenerating = false;
+    await fetch('https://cors-anywhere.herokuapp.com/https://tosad-generate.herokuapp.com/generate/1', {
+      method: 'post'
+    });
+    this.notGenerating = true;
+  }
 }
