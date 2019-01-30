@@ -41,7 +41,7 @@ export default class DefineAgent {
     return json.object as BusinessRuleType[];
   }
   public async getType(id: number) {
-    const res = await fetch( `${this._baseURI}/type/${id}`, {
+    const res = await fetch( `${this._baseURI}type/${id}`, {
       method: 'get',
 
     });
@@ -49,7 +49,7 @@ export default class DefineAgent {
     return json.object as BusinessRuleType;
   }
   public async createType(type: BusinessRuleType) {
-    await fetch(`${this._baseURI}/type`, {
+    await fetch(`${this._baseURI}type`, {
       method: 'post',
 
       headers: {
@@ -61,7 +61,7 @@ export default class DefineAgent {
     return true;
   }
   public async updateType(type: BusinessRuleType) {
-    await fetch(`${this._baseURI}/type`, {
+    await fetch(`${this._baseURI}type`, {
       method: 'put',
 
       headers: {
@@ -73,7 +73,7 @@ export default class DefineAgent {
     return true;
   }
   public async deleteType(id: number) {
-    await fetch(`${this._baseURI}/type/${id}`, {
+    await fetch(`${this._baseURI}type/${id}`, {
       method: 'delete',
 
       headers: {
@@ -84,7 +84,7 @@ export default class DefineAgent {
     return true;
   }
   public async getTemplate(dbtype: number, ruletype: number) {
-    const res = await fetch(`${this._baseURI}/template/${ruletype}/${dbtype}`, {
+    const res = await fetch(`${this._baseURI}template/${ruletype}/${dbtype}`, {
       method: 'get',
 
     }).catch( function() {
@@ -95,7 +95,7 @@ export default class DefineAgent {
   }
 
   public async createTemplate(template: Template) {
-    await fetch(`${this._baseURI}/template`, {
+    await fetch(`${this._baseURI}template`, {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',
@@ -105,7 +105,7 @@ export default class DefineAgent {
    return true;
   }
   public async updateTemplate(template: Template) {
-    await fetch(`${this._baseURI}/template`, {
+    await fetch(`${this._baseURI}template`, {
       method: 'put',
       headers: {
         'Content-Type': 'application/json',
@@ -116,7 +116,7 @@ export default class DefineAgent {
   }
 
   public async getRules() {
-    const res = await fetch( `${this._baseURI}/rule/all`, {
+    const res = await fetch( `${this._baseURI}rule/all`, {
       method: 'get',
     });
     const json: IResult = await res.json();
@@ -124,7 +124,7 @@ export default class DefineAgent {
   }
 
   public async getRule(id: number) {
-    const res = await fetch( `${this._baseURI}/rule/${id}`, {
+    const res = await fetch( `${this._baseURI}rule/${id}`, {
       method: 'get',
     });
     const json: IResult = await res.json();
@@ -132,7 +132,7 @@ export default class DefineAgent {
   }
 
   public async updateRule(updatedRule: BusinessRule) {
-    await fetch(`${this._baseURI}/rule`, {
+    await fetch(`${this._baseURI}rule`, {
       method: 'put',
       headers: {
         'Content-Type': 'application/json',
@@ -142,7 +142,7 @@ export default class DefineAgent {
    return true;
   }
   public async createRule(rule: BusinessRule) {
-    await fetch(`${this._baseURI}/rule`, {
+    await fetch(`${this._baseURI}rule`, {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',
@@ -152,7 +152,7 @@ export default class DefineAgent {
    return true;
   }
   public async deleteRule(id: number) {
-    await fetch(`${this._baseURI}/rule/${id}`, {
+    await fetch(`${this._baseURI}rule/${id}`, {
       method: 'delete',
 
       headers: {

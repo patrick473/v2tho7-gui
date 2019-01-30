@@ -23,21 +23,11 @@ import { DepartmentDetailsComponent } from './components/target/Department/depar
 
 import { GenerateOverviewComponent } from './components/generate/generate-overview/generate-overview.component';
 import { GenerateTableComponent } from './components/generate/generate-table/generate-table.component';
-import { RuleDetailsWrapperComponent } from './components/define/details/rule-details-wrapper/rule-details-wrapper.component';
-import { ArngFormComponent } from './components/define/details/type-forms/arng-form/arng-form.component';
-import { AcmpFormComponent } from './components/define/details/type-forms/acmp-form/acmp-form.component';
-import { AlisFormComponent } from './components/define/details/type-forms/alis-form/alis-form.component';
-import { AothFormComponent } from './components/define/details/type-forms/aoth-form/aoth-form.component';
-import { TcmpFormComponent } from './components/define/details/type-forms/tcmp-form/tcmp-form.component';
-import { TothFormComponent } from './components/define/details/type-forms/toth-form/toth-form.component';
-import { IcmpFormComponent } from './components/define/details/type-forms/icmp-form/icmp-form.component';
-import { EothFormComponent } from './components/define/details/type-forms/eoth-form/eoth-form.component';
-import { ModiFormComponent } from './components/define/details/type-forms/modi-form/modi-form.component';
+
 import { TypeOverviewComponent } from './components/define/type/type-overview/type-overview.component';
 import { TypeTableComponent } from './components/define/type/type-table/type-table.component';
 import { TypeDetailsComponent } from './components/define/type/type-details/type-details.component';
 import { RuleOverviewComponent } from './components/define/rule/rule-overview/rule-overview.component';
-import { RuleTypeSelectComponent } from './components/define/rule/rule-type-select/rule-type-select.component';
 import { RuleDetailsComponent } from './components/define/rule/rule-details/rule-details.component';
 import { HomeComponent } from './components/home/home.component';
 import { TemplateDetailsComponent } from './components/define/template/template-details/template-details.component';
@@ -58,21 +48,11 @@ import { RuleTableComponent } from './components/define/rule/rule-table/rule-tab
     DepartmentDetailsComponent,
     GenerateOverviewComponent,
     GenerateTableComponent,
-    RuleDetailsWrapperComponent,
-    ArngFormComponent,
-    AcmpFormComponent,
-    AlisFormComponent,
-    AothFormComponent,
-    TcmpFormComponent,
-    TothFormComponent,
-    IcmpFormComponent,
-    EothFormComponent,
-    ModiFormComponent,
+
     TypeOverviewComponent,
     TypeTableComponent,
     TypeDetailsComponent,
     RuleOverviewComponent,
-    RuleTypeSelectComponent,
     RuleDetailsComponent,
     HomeComponent,
     TemplateDetailsComponent,
