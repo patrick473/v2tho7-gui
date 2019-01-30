@@ -5,15 +5,39 @@
   class="clr-form-horizontal"
 >
   <div class="clr-col-12"><label>Businessrule details</label></div>
+
   <div class="clr-col-12">
-  <clr-input-container>
-      <label>Name</label>
-      <input type="text" clrInput class="form-control" formControlName="name" />
-  </clr-input-container>
+    <clr-select-container>
+      <label for="btyp">Businessrule type</label>
+      <select
+        id="btyp"
+        clrSelect
+        name="ruletype"
+        (change)="onSelectChange()"
+        [(ngModel)]="ruletype"
+        [ngModelOptions]="{ standalone: true }"
+        required
+      >
+        <option *ngFor="let brtype of ruletypes" [value]="brtype.id">{{
+          brtype.name
+        }}</option>
+      </select>
+    </clr-select-container>
   </div>
+  <div>
+      <div class="clr-col-12">
+          <clr-input-container>
+            <label>Name</label>
+            <input
+              type="text"
+              clrInput
+              class="form-control"
+              formControlName="name"
+            />
+          </clr-input-container>
+        </div>
 
-
-  <div class="clr-col-12">
+    <div class="clr-col-12">
       <clr-select-container>
         <label>Constraint </label>
         <select clrSelect name="options" formControlName="constraint" required>
@@ -24,70 +48,84 @@
     </div>
 
     <div class="clr-col-12">
-        <clr-select-container>
-          <label>Operator </label>
-          <select clrSelect name="options" formControlName="operator" required>
-            <option value="true">true</option>
-            <option value="false">false</option>
-          </select>
-        </clr-select-container>
+      <clr-select-container>
+        <label>Operator </label>
+        <select clrSelect name="options" formControlName="operator" required>
+          <option value="true">true</option>
+          <option value="false">false</option>
+        </select>
+      </clr-select-container>
+    </div>
+
+
+
+    <div class="clr-col-12">
+        <clr-input-container>
+          <label>Table</label>
+          <input
+            type="text"
+            clrInput
+            class="form-control"
+            formControlName="table"
+          />
+        </clr-input-container>
       </div>
 
-    <div formArrayName="bindings">
-        <div class="clr-col-12"><label>Businessrule details</label></div>
-        <div *ngFor="let binding of bindings.controls; let i=index">
+    <div class="clr-col-12">
+      <clr-select-container>
+        <label>Insert </label>
+        <select clrSelect name="options" formControlName="insert" required>
+          <option value="true">true</option>
+          <option value="false">false</option>
+        </select>
+      </clr-select-container>
+    </div>
+    <div class="clr-col-12">
+      <clr-select-container>
+        <label>Update </label>
+        <select clrSelect name="options" formControlName="update" required>
+          <option value="true">true</option>
+          <option value="false">false</option>
+        </select>
+      </clr-select-container>
+    </div>
+    <div class="clr-col-12">
+      <clr-select-container>
+        <label>Delete </label>
+        <select clrSelect name="options" formControlName="delete" required>
+          <option value="true">true</option>
+          <option value="false">false</option>
+        </select>
+      </clr-select-container>
+    </div>
 
-        <div class="clr-col-12" >
-            <clr-input-container>
-                <label>{{bindingLabels[i]}}</label>
-                <input type="text" clrInput class="form-control" formControlName="{{i}}" />
-            </clr-input-container>
+    <div class="clr-col-12">
+        <clr-input-container>
+          <label>Error message</label>
+          <input
+            type="text"
+            clrInput
+            class="form-control"
+            formControlName="error"
+          />
+        </clr-input-container>
+      </div>
+      <div formArrayName="bindings">
+          <div class="clr-col-12"><label>Businessrule details</label></div>
+          <div *ngFor="let binding of bindings.controls; let i = index">
+            <div class="clr-col-12">
+              <clr-input-container>
+                <label>{{ bindingLabels[i] }}</label>
+                <input
+                  type="text"
+                  clrInput
+                  class="form-control"
+                  formControlName="{{ i }}"
+                />
+              </clr-input-container>
+            </div>
+          </div>
         </div>
-      </div>
-
-    </div>
-
-  <div class="form-group" *ngIf="types" style="margin-top: 20px;">
-    <label for="type">Type</label>
-    <select class="form-control" formControlName="type" id="type">
-      <option *ngFor="let type of types" value="{{ type.id }}">{{
-        type.name
-      }}</option>
-    </select>
+    <button type="submit" class="btn btn-primary">Edit</button>
   </div>
-
-  <div class="form-group">
-    <label>Table</label>
-    <input type="text" class="form-control" formControlName="table" />
-  </div>
-  <div
-    *ngIf="form.get('table').dirty && form.get('table').errors"
-    class="error-div"
-  >
-    Table is
-  </div>
-
-  <fieldset formGroupName="modifyTypes">
-    <div class="modify-types">
-      <label>Insert</label>
-      <input type="checkbox" class="form-control" formControlName="insert" />
-      <label>Update</label>
-      <input type="checkbox" class="form-control" formControlName="update" />
-      <label>Delete</label>
-      <input type="checkbox" class="form-control" formControlName="delete" />
-    </div>
-  </fieldset>
-
-  <div class="form-group">
-    <label>Error message</label>
-    <input type="text" class="form-control" formControlName="error" />
-  </div>
-  <div
-    *ngIf="form.get('error').dirty && form.get('error').errors"
-    class="error-div"
-  >
-    Table is
-  </div>
-
-  <button type="submit" class="btn btn-primary">Edit</button>
 </form>
