@@ -24,7 +24,7 @@ export class TypeDetailsComponent implements OnInit {
   id: number;
   options: string;
   currentParameter: {name: string, datatype: string} = {name: '', datatype: ''};
-  currentOperator: {name: string, action: string} = {name: '', action: ''};
+  currentOperator: {id: number, name: string, action: string} = {id: 0, name: '', action: ''};
   formState: BusinessRuleType = {
     name: '',
     nameCode: '',
@@ -89,7 +89,7 @@ export class TypeDetailsComponent implements OnInit {
 
   addOperator() {
     this.formState.possibleOperators.push(this.currentOperator);
-    this.currentOperator = {name: '' , action: ''};
+    this.currentOperator = {id: 0, name: '' , action: ''};
     console.log(this.formState);
   }
 
